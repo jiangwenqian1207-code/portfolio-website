@@ -63,7 +63,7 @@ window.PORTFOLIO_PROJECTS = [
     tools: ["PHOTOSHOP", "ILLUSTRATOR", "AFTER EFFECTS", "FIGMA"],
     screens: [
       ["LAUNCH KV", "./public/images/projects/xgimi-visual-marketing/social-posts/midyear-refresh-social-post-618.png", 0],
-      ["E-COMMERCE", "./public/images/projects/xgimi-visual-marketing/social-posts/football-season-rules-social-post-02.png", 0],
+      ["E-COMMERCE", "./public/images/projects/xgimi-visual-marketing/social-posts/football-season-rules-social-post-02-mobile.jpg", 0],
       ["SOCIAL MEDIA", "./public/images/projects/xgimi-visual-marketing/social-posts/trade-in-renewal-social-post-2024-06-12.png", 0],
       ["EVENT VISUAL", "./public/images/projects/xgimi-visual-marketing/social-posts/new-product-detail-social-post.png", 0]
     ],

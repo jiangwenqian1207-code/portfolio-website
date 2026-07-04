@@ -33,7 +33,7 @@
     const index = projects.indexOf(project);
     const isLast = index === projects.length - 1;
     const next = projects[(index + 1) % projects.length];
-    return `<a class="next-project" href="${isLast ? "./index.html#works" : `./${next.file}`}"><span>${isLast ? "END OF PROJECT / 05" : `NEXT PROJECT / ${next.number}`}</span><strong>${isLast ? "BACK TO SELECTED WORKS" : next.title}</strong><b>↗</b></a>`;
+    return `<a class="next-project" href="${isLast ? "./index.html#works" : `./${next.file}`}"><span>${isLast ? "END OF PROJECT / 05" : `NEXT PROJECT / ${next.number}`}</span><strong>${isLast ? "BACK TO SELECTED WORKS" : next.title}</strong><b class="arrow-icon" aria-hidden="true"></b></a>`;
   }
 
   function mobileProjectDetail(project) {
@@ -269,6 +269,22 @@
     form.addEventListener("submit", (event) => { event.preventDefault(); toast.classList.add("is-visible"); setTimeout(() => toast.classList.remove("is-visible"), 2400); });
   }
 
+  function initPosterGallery() {
+    $$(".staggered-posters figure").forEach((card) => {
+      card.tabIndex = 0;
+      card.setAttribute("role", "button");
+      const toggle = () => {
+        const selected = card.classList.contains("is-selected");
+        $$(".staggered-posters figure").forEach((item) => item.classList.remove("is-selected"));
+        if (!selected) card.classList.add("is-selected");
+      };
+      card.addEventListener("click", toggle);
+      card.addEventListener("keydown", (event) => {
+        if (event.key === "Enter" || event.key === " ") { event.preventDefault(); toggle(); }
+      });
+    });
+  }
+
   if (document.body.dataset.page === "detail") renderDetail();
-  initDesktopScale(); initLoading(); initMenu(); initDragScroll(); initPosterStacks(); initVideos(); initPhoneScreens(); initReveal(); initContact();
+  initDesktopScale(); initLoading(); initMenu(); initDragScroll(); initPosterStacks(); initPosterGallery(); initVideos(); initPhoneScreens(); initReveal(); initContact();
 })();
