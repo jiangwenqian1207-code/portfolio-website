@@ -1,0 +1,16 @@
+<!doctype html>
+<meta charset="utf-8">
+<style>
+  html,body { margin:0; width:100%; height:100%; background:#111; overflow:hidden; }
+  body { display:grid; place-items:center; }
+  video { max-width:100vw; max-height:100vh; }
+</style>
+<video id="v" muted preload="auto" src="file:///C:/Users/Charlie%20J/Downloads/20260704-0437-01.3821503.mp4"></video>
+<script>
+  const v = document.getElementById('v');
+  const t = Number(new URLSearchParams(location.search).get('t') || 0);
+  v.addEventListener('loadedmetadata', () => {
+    document.title = JSON.stringify({ duration:v.duration, width:v.videoWidth, height:v.videoHeight });
+    v.currentTime = Math.min(t, Math.max(0, v.duration - 0.05));
+  });
+</script>

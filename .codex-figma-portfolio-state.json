@@ -1,0 +1,43 @@
+{
+  "runId": "portfolio-home-20260704",
+  "phase": "complete",
+  "fileKey": "9Ic9V2bac7vzvdQiCCla0w",
+  "pageId": "30:13",
+  "wrapperId": "30:14",
+  "sections": {
+    "loading": "30:15",
+    "hero": "30:16",
+    "worksStrip": "30:17",
+    "about": "30:18",
+    "skills": "30:19",
+    "projects": "30:20",
+    "contact": "30:21"
+  },
+  "components": {
+    "button": "31:4",
+    "tag": "32:2",
+    "workCard": "33:2",
+    "navbar": "34:2",
+    "formField": "38:2",
+    "projectRow": "41:2",
+    "contactForm": "42:5",
+    "detailBackButton": "118:111",
+    "detailProjectTag": "119:111",
+    "detailProjectInfoCard": "120:111",
+    "detailPhoneMockup": "124:111",
+    "detailPosterCard": "125:111",
+    "detailVideoBlock": "126:111",
+    "detailNextProject": "127:111",
+    "detailPosterStack": "131:156"
+  },
+  "detailFrames": {
+    "01": "114:111",
+    "02": "139:208",
+    "03": "139:298",
+    "04": "140:312",
+    "05": "142:354",
+    "mobile01": "143:411"
+  },
+  "completedSteps": ["phase0", "phase1", "phase2", "phase3", "phase4"],
+  "pendingValidations": []
+}
