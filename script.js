@@ -84,7 +84,7 @@
   }
 
   function videoBlock([title, meta, src]) {
-    return `<article class="video-card"><header><h3>${title}</h3><p>${meta}</p></header><div class="video-media"><video src="${src}" preload="auto" playsinline></video><button class="video-play" type="button" aria-label="播放 ${title}">▶</button></div></article>`;
+    return `<article class="video-card"><header><h3>${title}</h3><p>${meta}</p></header><div class="video-media"><video src="${src}" preload="auto" playsinline></video><button class="video-play" type="button" aria-label="播放 ${title}"></button></div></article>`;
   }
 
   function modelingProjectDetail(project) {
@@ -94,7 +94,7 @@
         <div class="detail-background-title">${project.background}</div><figure class="modeling-artwork"><img src="${project.cover}" alt="3D Modeling 主视觉"></figure>
         <div class="detail-keywords left">AIGC<br>POSTER<br>MOTION<br>VISUAL EXPERIMENT</div><div class="detail-tag">${["C4D", "POSTER", "MOTION", "VISUAL EXPERIMENT"].map(tag).join("")}</div><strong class="detail-number">05</strong>
       </section>
-      <section class="stack-section section-lavender"><div class="stack-copy"><h2 class="detail-heading reveal">POSTER STACK</h2><p>点击最上层海报：当前卡片轻微滑出并进入底层，下一张成为主视觉。</p><small>ARRAY ORDER · Z-INDEX · TRANSFORM · TRANSITION 420MS</small></div>${posterStack(project.posters, "POSTER")}</section>
+      <section class="stack-section section-lavender"><div class="stack-copy"><h2 class="detail-heading reveal">POSTER STACK</h2><p>这是用 Blender 创作的疗愈花园系列，以半透明花卉与梦幻材质营造柔软、安静的视觉体验。<br><br>希望通过轻盈的色彩与漂浮的植物形态，传达情绪被包裹和慢慢舒展的感觉。</p><small>ARRAY ORDER · Z-INDEX · TRANSFORM · TRANSITION 420MS</small></div>${posterStack(project.posters, "POSTER")}</section>
       <section class="motion-section section-dark"><h2 class="detail-heading reveal">MOTION WORKS</h2><p class="section-note">02 FILMS / HTML5 VIDEO / LOCAL ASSETS</p><div class="video-grid">${project.videos.map(videoBlock).join("")}</div><div class="motion-statement">POSTER BECOMES FRAME.<br>FRAME BECOMES MOTION.</div></section>
       <section class="process-section section-light"><h2 class="detail-heading reveal">PROCESS / CONCEPT</h2><div class="process-grid">${project.process.map(([title, body]) => `<article><h3>${title}</h3><p>${body}</p><span></span></article>`).join("")}</div></section>
       <section class="next-section section-dark">${nextProject(project)}</section>`;
