@@ -171,6 +171,7 @@ h1, h2, h3, p, figure { margin: 0; }
 .poster-drag-hint.is-visible { opacity: 1; transform: translate3d(0,0,0); }
 .poster-cycle-hint { position: fixed; z-index: 1300; top: 0; left: 0; padding: 10px 14px; border: 1px solid rgba(255,255,255,.28); border-radius: 999px; color: var(--color-black); font-size: 13px; font-weight: 900; letter-spacing: .03em; background: rgba(225,218,255,.94); box-shadow: 0 12px 28px rgba(45,32,105,.18); opacity: 0; pointer-events: none; transform: translate3d(0,8px,0); transition: opacity .16s ease, transform .16s ease; white-space: nowrap; }
 .poster-cycle-hint.is-visible { opacity: 1; transform: translate3d(0,0,0); }
+.poster-tap-hint { display: none; }
 
 /* Shared project detail */
 .detail-hero, .modeling-hero, .poster-hero { position: relative; height: 1000px; overflow: hidden; }
@@ -423,6 +424,7 @@ h1, h2, h3, p, figure { margin: 0; }
   .stack-copy p { font-size: 13px; }
   .stack-copy small { margin-top: 20px; }
   .poster-stack { width: 100%; height: 480px; transform: scale(.82); transform-origin: top center; }
+  .poster-stack:not(.single-poster) .poster-tap-hint { position: absolute; z-index: 12; left: 50%; bottom: -34px; display: inline-flex; align-items: center; justify-content: center; padding: 9px 14px; border-radius: 999px; color: var(--color-black); font-size: 12px; font-weight: 900; letter-spacing: .04em; background: rgba(225,218,255,.94); box-shadow: 0 10px 24px rgba(45,32,105,.16); transform: translateX(-50%); white-space: nowrap; pointer-events: none; }
   .poster-stack.single-poster { height: 390px; }
   .poster-stack.single-poster .poster-card { width: 255px !important; height: 340px !important; }
   .next-section { min-height: 360px; padding: 32px 24px; }

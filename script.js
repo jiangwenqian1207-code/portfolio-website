@@ -8,6 +8,7 @@
   const posterStack = (assets, label = "POSTER", className = "") => `
     <div class="poster-stack artwork-stack ${className}" tabindex="0" role="button" aria-label="点击切换下一张海报">
       ${assets.slice(0, 3).map((src, index) => `<figure class="poster-card" data-order="${index}"><img src="${src}" alt="${label} ${String(index + 1).padStart(2, "0")}" draggable="false"></figure>`).join("")}
+      ${className.includes("single-poster") ? "" : `<span class="poster-tap-hint">点击海报查看下一张</span>`}
     </div>`;
 
   function phoneMockup([label, src, initial = 0], className = "") {
