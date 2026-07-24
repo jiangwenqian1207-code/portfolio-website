@@ -76,7 +76,7 @@ window.PORTFOLIO_PROJECTS = [
         note: "“618焕新季”公众号推文 / “世界杯足球季”公众号推文",
         screens: [
           ["LAUNCH KV", "./public/images/projects/xgimi-visual-marketing/social-posts/midyear-refresh-social-post-618.png", 0],
-          ["E-COMMERCE", "./public/images/projects/xgimi-visual-marketing/social-posts/football-season-rules-social-post-02.png", 0]
+          ["E-COMMERCE", "./public/images/projects/xgimi-visual-marketing/social-posts/football-season-rules-social-post-02-mobile.jpg", 0]
         ]
       },
       {
