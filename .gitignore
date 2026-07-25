@@ -1,0 +1,42 @@
+# dependencies
+node_modules/
+.pnpm-store/
+
+# build outputs
+dist/
+build/
+.next/
+.vite/
+
+# logs
+*.log
+*.err.log
+npm-debug.log*
+pnpm-debug.log*
+yarn-debug.log*
+
+# Codex / temporary artifacts
+.codex-backups/
+.codex-video-frames/
+.codex-video-frame.html
+.codex-*.log
+.codex-*.err.log
+.codex-figma-*.json
+
+# system/editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# common local backup/temp names
+*backup*
+*Backup*
+*copy*
+*Copy*
+*old*
+*Old*
+*temp*
+*Temp*
+*tmp*
+*Tmp*
