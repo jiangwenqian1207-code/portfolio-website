@@ -1,0 +1,10 @@
+{
+  "name": "@mediapipe/tasks-vision",
+  "version": "0.10.17",
+  "type": "module",
+  "main": "./index.js",
+  "module": "./index.js",
+  "exports": {
+    ".": "./index.js"
+  }
+}

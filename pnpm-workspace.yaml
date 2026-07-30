@@ -1,2 +1,5 @@
 allowBuilds:
   esbuild: true
+
+overrides:
+  "@mediapipe/tasks-vision": "link:./vendor/empty-mediapipe-tasks-vision"
