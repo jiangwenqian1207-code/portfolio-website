@@ -75,7 +75,7 @@
       <h3>PROJECT GOAL</h3>
       ${project.goals.map((goal, index) => `<p><strong>${String(index + 1).padStart(2, "0")}</strong><span>${goal}</span></p>`).join("")}
     </div>` : "";
-    return `<section class="analysis-background section-light ${goals ? "has-goals" : ""}">
+    return `<section class="analysis-background analysis-background-${project.number} section-light ${goals ? "has-goals" : ""}">
       <div class="analysis-section-head">
         <h2>${project.backgroundTitle}</h2>
         <p>${project.backgroundSubtitle}</p>

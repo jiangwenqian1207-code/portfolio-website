@@ -400,7 +400,6 @@ function App() {
   const [paused, setPaused] = useState(document.hidden);
   const [isInteracting, setIsInteracting] = useState(false);
   const pageRef = useRef(null);
-  const touchStartRef = useRef(null);
   const outTimerRef = useRef(null);
   const unlockTimerRef = useRef(null);
   const exitHandledRef = useRef(false);
@@ -511,38 +510,6 @@ function App() {
     pageRef.current?.style.setProperty("--my", `${y * 16}px`);
   }, []);
 
-  const handleTouchStart = useCallback((event) => {
-    if (event.touches.length !== 1) {
-      touchStartRef.current = null;
-      return;
-    }
-
-    const touch = event.touches[0];
-    touchStartRef.current = {
-      x: touch.clientX,
-      y: touch.clientY,
-      time: Date.now(),
-    };
-  }, []);
-
-  const handleTouchEnd = useCallback(
-    (event) => {
-      const start = touchStartRef.current;
-      touchStartRef.current = null;
-      if (!start || isSwitching || event.changedTouches.length !== 1) return;
-
-      const touch = event.changedTouches[0];
-      const dx = touch.clientX - start.x;
-      const dy = touch.clientY - start.y;
-      const duration = Date.now() - start.time;
-
-      if (duration > 700 || Math.abs(dx) < 58 || Math.abs(dx) < Math.abs(dy) * 1.45) return;
-      if (dx < 0) next();
-      else prev();
-    },
-    [isSwitching, next, prev]
-  );
-
   const visibleItem = modelItems[visibleIndex];
   const activeItem = modelItems[activeIndex];
 
@@ -551,8 +518,6 @@ function App() {
       className="orchid-page"
       ref={pageRef}
       onPointerMove={handlePointerMove}
-      onTouchStart={handleTouchStart}
-      onTouchEnd={handleTouchEnd}
     >
       <BackgroundGrid />
       <div className="canvas-wrap" aria-label={`可拖动旋转的${activeItem.nameZh} 3D 模型`}>
