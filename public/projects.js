@@ -231,5 +231,129 @@ window.PORTFOLIO_PROJECTS = [
       ["03 / BUILD", "在 Blender 中完成花卉建模、材质节点、灯光与镜头搭建。"],
       ["04 / COMPOSITE", "在 AE / PS 中完成动态设计、画面合成与整体调色。"]
     ]
+  },
+  {
+    id: "newrank-xiaodouya-analysis",
+    kind: "analysis",
+    file: "project-01-newrank-analysis.html",
+    number: "01",
+    title: "小豆芽「星推官」招募计划",
+    titleLines: ["小豆芽「星推官」", "招募计划"],
+    shortTitle: "新榜小豆芽落地页",
+    client: "新榜信息技术有限公司",
+    year: "2025.11",
+    role: "视觉设计、UI 设计",
+    category: "NEW RANKING · UI SYSTEM",
+    keywords: "LANDING PAGE · GROWTH CAMPAIGN · INFORMATION DESIGN",
+    cover: "/images/figma-newrank-analysis/01-full-page-preview.jpg",
+    heroImage: "/images/figma-newrank-analysis/01-full-page-preview.jpg",
+    heroMode: "browser",
+    backgroundTitle: "PROJECT BACKGROUND",
+    backgroundSubtitle: "项目背景",
+    background: [
+      "小豆芽是一款面向内容创作者的运营工具。",
+      "为了提升用户增长和品牌传播，推出「星推官」招募活动，通过邀请机制鼓励用户参与推广。",
+      "本项目负责活动落地页视觉设计，通过年轻化视觉语言和清晰的信息结构，提升活动吸引力和用户参与效率。"
+    ],
+    goals: ["提升活动传播效果", "降低活动规则理解成本", "增强品牌年轻化形象"],
+    conceptTitle: "DESIGN CONCEPT",
+    conceptSubtitle: "设计策略",
+    conceptCards: [
+      ["Playful", "游戏化体验", "通过 IP、场景化插画和奖励机制，增强活动趣味性。"],
+      ["Clear", "信息清晰", "针对活动规则复杂的问题，通过模块化布局建立阅读路径。"],
+      ["Engaging", "增强参与感", "利用排行榜、任务流程等设计，激励用户持续参与。"]
+    ],
+    landingTitle: "LANDING PAGE",
+    landingSubtitle: "页面展示",
+    landingIntro: "将长落地页拆解为关键模块，展示视觉吸引、规则理解、奖励激励与参与转化之间的关系。",
+    modules: [
+      ["01", "首屏", "通过 IP 角色与场景化视觉，建立活动第一视觉吸引力。", "/images/figma-newrank-analysis/02-hero-banner.jpg", "light"],
+      ["02", "活动简介", "利用卡片化设计，降低用户获取信息的成本。", "/images/figma-newrank-analysis/03-activity-introduction.jpg", "light"],
+      ["03", "奖励明细", "通过等级、奖励视觉层级，强化活动激励感。", "/images/figma-newrank-analysis/04-reward-system.jpg", "dark"],
+      ["04", "参与步骤", "将复杂参与流程转化为视觉化步骤，帮助用户快速理解活动规则。", "/images/figma-newrank-analysis/05-participation-flow.jpg", "light"],
+      ["05", "排行榜", "通过竞争机制增加用户参与动力，用高低差强化排名。", "/images/figma-newrank-analysis/06-ranking-system.jpg", "light"],
+      ["06", "注意事项", "信息密集但视觉上降低对比，避免抢占主流程注意力。", "/images/figma-newrank-analysis/07-notes.jpg", "light"]
+    ]
+  },
+  {
+    id: "xgimi-football-analysis",
+    kind: "analysis",
+    file: "project-02-xgimi-football-analysis.html",
+    number: "02",
+    title: "极米世界杯主题营销内容设计",
+    titleLines: ["极米世界杯主题", "营销内容设计"],
+    shortTitle: "极米足球季活动推文",
+    client: "极米科技有限公司",
+    year: "2026.06",
+    role: "视觉设计、营销活动视觉延展",
+    category: "XGIMI · VISUAL EXTENSION",
+    keywords: "SOCIAL MEDIA · BRAND SYSTEM · VISUAL EXTENSION",
+    cover: "/images/figma-xgimi-football-analysis/01-full-long-page.jpg",
+    heroImage: "/images/figma-xgimi-football-analysis/02-hero-football-banner.jpg",
+    heroMode: "wide",
+    backgroundTitle: "PROJECT BACKGROUND",
+    backgroundSubtitle: "项目背景",
+    background: [
+      "为契合世界杯赛事热点，极米打造以“光影绿茵场”为核心的营销视觉体系，将投影产品与足球运动场景结合，建立充满激情与沉浸感的品牌传播场景。",
+      "在此基础上，我负责公众号长图设计，通过视觉元素延展与信息结构设计，实现活动内容与主视觉的统一表达。"
+    ],
+    conceptTitle: "INFORMATION DISPLAY STYLE",
+    conceptSubtitle: "信息陈列风格：不规则纸张拼贴视觉",
+    conceptIntro: "浅色内容区域不是用常规矩形卡片的方式，而是采用不规则纸张拼贴的视觉语言，以手工感、层叠关系和模块化信息布局，放在草坪背景上，像把活动说明贴在绿茵场上。通过弱化规整网格，让商业信息看起来更亲近、不生硬，更具趣味性和亲和力。",
+    conceptCards: [
+      ["Editorial", "编辑感与社交媒体感", "形式融合杂志排版、手账拼贴和社交平台视觉，显得亲切、有趣、有生活感。"],
+      ["Modular", "模块化信息", "每一张纸片承载一组信息，把复杂信息拆成几个容易阅读的小模块。"],
+      ["Approachable", "轻量化表达", "通过纸张、手写感图形和错落排版，降低活动规则的阅读压力。"]
+    ],
+    landingTitle: "LANDING PAGE",
+    landingSubtitle: "页面展示",
+    longImage: "/images/figma-xgimi-football-analysis/01-full-long-page.jpg",
+    timeline: [
+      ["01", "主视觉", "以足球场景、IP 角色与产品组合建立世界杯主题主视觉。", "/images/figma-xgimi-football-analysis/timeline-01-hero.jpg"],
+      ["02", "活动时间线", "瀑布幕布的形式加时间线，进行活动预告。", "/images/figma-xgimi-football-analysis/timeline-02-time.jpg"],
+      ["03", "主题门店活动参与规则", "用不规则纸片、撕边、胶带感元素分割画面，弱化传统网页的规整感，同时保证信息层级清晰。", "/images/figma-xgimi-football-analysis/timeline-03-rules.jpg"],
+      ["04", "购机抽奖活动", "纸片、图片、文字、贴纸和装饰元素相互覆盖，通过遮挡、错位和阴影表现“贴上去”的空间关系。", "/images/figma-xgimi-football-analysis/timeline-04-reward.jpg"],
+      ["05", "门店清单", "瀑布幕布的形式加门店信息，完成活动门店陈列。", "/images/figma-xgimi-football-analysis/timeline-05-store.jpg"],
+      ["06", "注意事项", "文字较为密集，为保证浏览舒适度，加大事项点间距。", "/images/figma-xgimi-football-analysis/timeline-06-legal.jpg"]
+    ]
+  },
+  {
+    id: "xgimi-edm-analysis",
+    kind: "analysis",
+    file: "project-03-xgimi-edm-analysis.html",
+    number: "03",
+    title: "极米欧美新品付尾款 EDM设计",
+    titleLines: ["极米欧美新品付尾款", "EDM设计"],
+    shortTitle: "极米海外付尾款 EDM",
+    client: "极米科技有限公司",
+    year: "2026.07",
+    role: "主视觉延展、EDM版式设计",
+    category: "XGIMI · VISUAL EXTENSION",
+    keywords: "EDM · BRAND SYSTEM · VISUAL EXTENSION",
+    cover: "/images/figma-xgimi-edm-analysis/01-pay-balance-edm.jpg",
+    heroImage: "/images/figma-xgimi-edm-analysis/02-hero-edm.jpg",
+    heroMode: "poster",
+    backgroundTitle: "PROJECT BACKGROUND",
+    backgroundSubtitle: "项目背景",
+    background: [
+      "本项目是面向极米欧美市场订金用户设计的新品尾款支付 EDM，覆盖 Elfin Flip 4K、Elfin Flip Laser 与 MIRA 三款新品。设计的核心目标是强化订金用户的专属权益，帮助用户快速比较不同产品，并引导其完成尾款支付。",
+      "这张 EDM 的重点围绕用户最关心的四个问题展开：有什么优惠？我能获得什么权益？三款产品有什么区别？如何完成尾款支付？"
+    ],
+    conceptTitle: "DESIGN CHALLENGE",
+    conceptSubtitle: "设计挑战",
+    conceptCards: [
+      ["Extension", "风格延展", "提取黑金、科技感的整体基调，将配色、光影和材质语言延展到权益模块、产品卡片、参数信息和按钮中。"],
+      ["Hierarchy", "信息梳理", "页面同时呈现三款产品、用户权益、价格、赠品、核心参数和支付流程，需要通过统一组件建立清晰层级。"],
+      ["Balance", "品牌与转化平衡", "保持新品高端科技感的同时，突出折扣、价格和支付按钮，让页面兼具品牌质感与转化效率。"]
+    ],
+    landingTitle: "LANDING PAGE",
+    landingSubtitle: "页面展示",
+    longImage: "/images/figma-xgimi-edm-analysis/01-pay-balance-edm.jpg",
+    timelineDisplay: "full-image",
+    timeline: [
+      ["01", "权益唤醒板块：告诉用户为什么现在要支付", "首屏呈现 Extra 10% Off、新品组合视觉与 Pay Your Balance 行动按钮，随后展示订金用户专属权益。", "/images/figma-xgimi-edm-analysis/timeline-01-benefit.jpg"],
+      ["02", "产品选择板块：帮助用户快速完成决策", "中段依次展示三款产品，并使用统一的信息结构，降低用户横向比较的阅读成本。", "/images/figma-xgimi-edm-analysis/timeline-02-products.jpg"],
+      ["03", "支付说明板块：消除最后一步的不确定性", "页面底部用 How to Pay the Balance 说明支付流程，减少用户在支付前的规则疑虑。", "/images/figma-xgimi-edm-analysis/timeline-03-payment.jpg"]
+    ]
   }
 ];

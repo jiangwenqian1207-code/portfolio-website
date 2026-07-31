@@ -189,7 +189,7 @@ a {
 
 .title-panel {
   grid-column: 1;
-  max-width: 540px;
+  max-width: 760px;
   padding-top: 8vh;
   pointer-events: auto;
 }
@@ -203,10 +203,11 @@ a {
 
 .title-panel h1 {
   margin: 0;
-  font-size: clamp(56px, 6.8vw, 128px);
-  line-height: 0.88;
-  letter-spacing: -0.075em;
+  font-size: clamp(48px, 4.9vw, 88px);
+  line-height: 0.96;
+  letter-spacing: 0.04em;
   font-weight: 900;
+  white-space: nowrap;
 }
 
 .title-panel h1 span {
@@ -228,7 +229,7 @@ a {
 .view-panel {
   grid-column: 3;
   justify-self: end;
-  width: min(290px, 100%);
+  width: min(320px, 100%);
   padding-top: 10vh;
   pointer-events: auto;
 }
@@ -243,24 +244,28 @@ a {
 
 .thumb-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(1, minmax(0, 1fr));
   gap: 12px;
 }
 
 .thumb-card {
-  min-height: 88px;
-  padding: 14px;
+  position: relative;
+  min-height: 78px;
+  padding: 13px 14px;
+  overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.18);
-  border-radius: 18px;
+  border-radius: 8px;
   color: rgba(255, 255, 255, 0.78);
   background:
-    linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.018)),
-    rgba(8, 8, 8, 0.72);
+    linear-gradient(135deg, rgba(255, 255, 255, 0.085), rgba(255, 255, 255, 0.018)),
+    rgba(9, 9, 10, 0.82);
   cursor: pointer;
-  transition: border-color 220ms ease, transform 220ms ease, color 220ms ease;
+  text-align: left;
+  transition: border-color 220ms ease, filter 220ms ease, transform 220ms ease, color 220ms ease, background 220ms ease;
 }
 
 .thumb-card span,
+.thumb-card strong,
 .thumb-card small {
   display: block;
 }
@@ -270,17 +275,65 @@ a {
   font-weight: 800;
 }
 
+.thumb-card strong {
+  margin-top: 10px;
+  font-size: 20px;
+  line-height: 1;
+  font-weight: 800;
+}
+
 .thumb-card small {
-  margin-top: 20px;
+  margin-top: 6px;
   font-size: 10px;
   letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.thumb-card::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: #fff;
+  opacity: 0;
+  transform: scaleY(0.36);
+  transition: opacity 220ms ease, transform 220ms ease;
 }
 
 .thumb-card:hover,
 .thumb-card.is-active {
-  transform: translateY(-3px);
   color: #fff;
+  filter: brightness(1.18);
   border-color: #fff;
+}
+
+.thumb-card:hover {
+  transform: scale(1.025);
+}
+
+.thumb-card.is-active {
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.035)),
+    rgba(17, 17, 18, 0.9);
+  box-shadow: 0 0 0 1px #fff inset, 0 18px 42px rgba(0, 0, 0, 0.28);
+}
+
+.thumb-card.is-active::after {
+  opacity: 1;
+  transform: scaleY(1);
+}
+
+.thumb-card[aria-disabled="true"],
+.arrow-row button[aria-disabled="true"] {
+  cursor: wait;
+  opacity: 0.7;
+}
+
+.thumb-card[aria-disabled="true"]:hover {
+  transform: none;
 }
 
 .arrow-row {
@@ -301,7 +354,7 @@ a {
   transition: transform 220ms ease, background 220ms ease;
 }
 
-.arrow-row button:hover {
+.arrow-row button:hover:not([aria-disabled="true"]) {
   transform: translateY(-2px);
   background: #fff;
 }
@@ -374,19 +427,18 @@ a {
   }
 
   .canvas-wrap {
-    top: 22svh;
-    bottom: 20svh;
-    height: auto;
+    inset: 0;
+    height: 100%;
   }
 
   .interface {
     min-height: 100svh;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: stretch;
     gap: 0;
-    padding: 22px;
+    padding: 14px 22px 22px;
   }
 
   .topbar {
@@ -401,12 +453,15 @@ a {
 
   .title-panel {
     max-width: none;
-    padding-top: 28px;
+    padding-top: 10px;
+    transform: translateY(-8px);
+    pointer-events: none;
   }
 
   .title-panel h1 {
     font-size: clamp(44px, 14vw, 74px);
     letter-spacing: -0.08em;
+    white-space: normal;
   }
 
   .title-panel h1 span {
@@ -416,13 +471,14 @@ a {
 
   .title-panel p:last-child {
     max-width: 340px;
-    margin-top: 18px;
+    margin-top: 14px;
     font-size: 13px;
     line-height: 1.65;
   }
 
   .view-panel {
     width: 100%;
+    margin-top: auto;
     padding: 0;
   }
 
@@ -432,23 +488,29 @@ a {
   }
 
   .thumb-grid {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-columns: repeat(5, minmax(0, 1fr));
     gap: 8px;
   }
 
   .thumb-card {
     min-height: 64px;
-    padding: 10px;
-    border-radius: 14px;
+    padding: 9px;
+    border-radius: 8px;
   }
 
   .thumb-card span {
     font-size: 15px;
   }
 
+  .thumb-card strong {
+    margin-top: 7px;
+    font-size: 15px;
+  }
+
   .thumb-card small {
-    margin-top: 12px;
-    font-size: 8px;
+    margin-top: 5px;
+    font-size: 7px;
+    letter-spacing: 0.06em;
   }
 
   .arrow-row {

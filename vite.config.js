@@ -16,13 +16,25 @@ export default defineConfig({
         project: resolve(__dirname, "project.html"),
 
         newrank: resolve(__dirname, "project-01-newrank.html"),
+        newrankAnalysis: resolve(
+          __dirname,
+          "project-01-newrank-analysis.html"
+        ),
         xgimiDomestic: resolve(
           __dirname,
           "project-02-xgimi-domestic.html"
         ),
+        xgimiFootballAnalysis: resolve(
+          __dirname,
+          "project-02-xgimi-football-analysis.html"
+        ),
         xgimiOverseas: resolve(
           __dirname,
           "project-03-xgimi-overseas.html"
+        ),
+        xgimiEdmAnalysis: resolve(
+          __dirname,
+          "project-03-xgimi-edm-analysis.html"
         ),
         graphicPoster: resolve(
           __dirname,

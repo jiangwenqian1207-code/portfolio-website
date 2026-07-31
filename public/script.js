@@ -32,6 +32,121 @@
     return project.heroDevice === "tablet" ? tabletMockup(project.heroScreen, "hero-tablet") : phoneMockup(project.heroScreen, "hero-phone");
   }
 
+  function pageProjects() {
+    return projects.filter((item) => item.kind !== "analysis");
+  }
+
+  function analysisProjects() {
+    return projects.filter((item) => item.kind === "analysis");
+  }
+
+  function analysisCard([title, subtitle, body], index) {
+    return `<article class="analysis-concept-card reveal" style="--delay:${index * 70}ms">
+      <span></span>
+      <h3>${title}</h3>
+      <h4>${subtitle}</h4>
+      <p>${body}</p>
+    </article>`;
+  }
+
+  function analysisHero(project) {
+    const heroTitle = Array.isArray(project.titleLines) && project.titleLines.length
+      ? project.titleLines.map((line) => `<span class="analysis-title-line">${line}</span>`).join("")
+      : project.title;
+
+    return `<section class="analysis-hero section-dark">
+      <a class="back-button" href="./index.html#works">← 返回作品列表</a>
+      <div class="analysis-hero-copy">
+        <div class="analysis-topline"><strong>${project.number}</strong><span>${project.category}</span></div>
+        <h1>${heroTitle}</h1>
+        <p class="analysis-client">${project.client}</p>
+        <p class="analysis-role">角色：${project.role}<span>日期：${project.year}</span></p>
+        <div class="analysis-divider"></div>
+        <p class="analysis-keywords">${project.keywords}</p>
+      </div>
+      <figure class="analysis-hero-visual analysis-${project.heroMode || "wide"} reveal">
+        <img src="${project.heroImage}" alt="${project.shortTitle} 主视觉">
+      </figure>
+    </section>`;
+  }
+
+  function analysisBackground(project) {
+    const goals = project.goals?.length ? `<div class="analysis-goals">
+      <h3>PROJECT GOAL</h3>
+      ${project.goals.map((goal, index) => `<p><strong>${String(index + 1).padStart(2, "0")}</strong><span>${goal}</span></p>`).join("")}
+    </div>` : "";
+    return `<section class="analysis-background section-light ${goals ? "has-goals" : ""}">
+      <div class="analysis-section-head">
+        <h2>${project.backgroundTitle}</h2>
+        <p>${project.backgroundSubtitle}</p>
+      </div>
+      <div class="analysis-body">${project.background.map((item) => `<p>${item}</p>`).join("")}</div>
+      ${goals}
+    </section>`;
+  }
+
+  function analysisConcept(project) {
+    return `<section class="analysis-concept section-dark">
+      <div class="analysis-section-head">
+        <h2>${project.conceptTitle}</h2>
+        <p>${project.conceptSubtitle}</p>
+      </div>
+      ${project.conceptIntro ? `<p class="analysis-concept-intro">${project.conceptIntro}</p>` : ""}
+      <div class="analysis-concept-grid">${project.conceptCards.map(analysisCard).join("")}</div>
+    </section>`;
+  }
+
+  function analysisModules(project) {
+    return `<div class="analysis-module-grid">
+      ${project.modules.map(([number, title, body, src, theme]) => `<article class="analysis-module ${theme === "dark" ? "is-active" : ""} reveal" role="button" tabindex="0" aria-selected="${theme === "dark" ? "true" : "false"}">
+        <header><strong>${number}</strong><h3>${title}</h3></header>
+        <figure><img src="${src}" alt="${project.shortTitle} ${title}"></figure>
+        <p>${body}</p>
+      </article>`).join("")}
+    </div>`;
+  }
+
+  function analysisTimeline(project) {
+    if (project.timelineDisplay === "full-image" && project.longImage) {
+      return `<div class="analysis-long-layout analysis-long-layout--full">
+        <div class="analysis-timeline">
+          ${project.timeline.map(([number, title, body]) => `<article class="analysis-timeline-item reveal">
+            <strong>${number}</strong>
+            <div><h3>${title}</h3><p>${body}</p></div>
+            <span></span>
+          </article>`).join("")}
+        </div>
+        <figure class="analysis-long-image reveal"><img src="${project.longImage}" alt="${project.shortTitle} 完整页面"></figure>
+      </div>`;
+    }
+
+    return `<div class="analysis-long-layout">
+      ${project.timeline.map(([number, title, body, image]) => `<article class="analysis-paired-item reveal">
+        <div class="analysis-timeline-item">
+          <strong>${number}</strong>
+          <div><h3>${title}</h3><p>${body}</p></div>
+          <span></span>
+        </div>
+        ${image ? `<figure class="analysis-crop-image"><img src="${image}" alt="${project.shortTitle} ${title}"></figure>` : ""}
+      </article>`).join("")}
+    </div>`;
+  }
+
+  function analysisLanding(project) {
+    return `<section class="analysis-landing section-light">
+      <div class="analysis-section-head">
+        <h2>${project.landingTitle}</h2>
+        <p>${project.landingSubtitle}</p>
+      </div>
+      ${project.landingIntro ? `<p class="analysis-landing-intro">${project.landingIntro}</p>` : ""}
+      ${project.modules ? analysisModules(project) : analysisTimeline(project)}
+    </section>`;
+  }
+
+  function analysisProjectDetail(project) {
+    return `${analysisHero(project)}${analysisBackground(project)}${analysisConcept(project)}${analysisLanding(project)}`;
+  }
+
   function remainingDesigns(project) {
     if (!project.remaining?.length) return "";
     return `<section class="remaining-section remaining-${project.number} ${project.number === "02" ? "section-light" : "section-lavender"}"><h2 class="detail-heading reveal">REMAINING DESIGNS</h2><div class="remaining-grid">${project.remaining.map((src, index) => `<img src="${src}" alt="${project.title} remaining design ${index + 1}">`).join("")}</div></section>`;
@@ -51,22 +166,24 @@
   }
 
   function nextProject(project) {
-    const index = projects.indexOf(project);
-    const isLast = index === projects.length - 1;
-    const next = projects[(index + 1) % projects.length];
+    const items = pageProjects();
+    const index = items.indexOf(project);
+    const isLast = index === items.length - 1;
+    const next = items[(index + 1) % items.length];
     return `<a class="next-project" href="${isLast ? "./index.html#works" : `./${next.file}`}"><span>${isLast ? "END OF PROJECT / 05" : `NEXT PROJECT / ${next.number}`}</span><strong>${isLast ? "BACK TO SELECTED WORKS" : next.title}</strong><b class="arrow-icon" aria-hidden="true"></b></a>`;
   }
 
   function previousProjectHref(project) {
-    const index = projects.indexOf(project);
+    const items = pageProjects();
+    const index = items.indexOf(project);
     if (index <= 0) return "./index.html#works";
-    return `./${projects[index - 1].file}`;
+    return `./${items[index - 1].file}`;
   }
 
   function mobileProjectDetail(project) {
     return `
       <section class="detail-hero section-dark">
-        <a class="back-button" href="${previousProjectHref(project)}">← 返回上一页</a>
+        <a class="back-button" href="./index.html#works">← 返回首页</a>
         <p class="detail-intro">${project.intro}</p>
         <p class="detail-meta">${project.year}<br>${project.title}</p>
         <div class="detail-keywords left">${project.keywordsLeft.join("<br>")}</div>
@@ -92,7 +209,7 @@
   function posterProjectDetail(project) {
     return `
       <section class="poster-hero section-lavender">
-        <a class="back-button" href="${previousProjectHref(project)}">← 返回上一页</a>
+        <a class="back-button" href="./index.html#works">← 返回首页</a>
         <p class="detail-intro">${project.intro}</p><p class="detail-meta">${project.year}<br>${project.title}<br>${project.type}</p>
         <div class="poster-hero-title">${project.background.replace(/\n/g, "<br>")}</div>
         <figure class="hero-artwork"><img src="${project.cover}" alt="Graphic Poster 主视觉"></figure>
@@ -112,7 +229,7 @@
   function modelingProjectDetail(project) {
     return `
       <section class="modeling-hero section-dark">
-        <a class="back-button" href="${previousProjectHref(project)}">← 返回上一页</a><p class="detail-intro">${project.intro}</p><p class="detail-meta">${project.year}<br>${project.title}<br>${project.type}</p>
+        <a class="back-button" href="./index.html#works">← 返回首页</a><p class="detail-intro">${project.intro}</p><p class="detail-meta">${project.year}<br>${project.title}<br>${project.type}</p>
         <div class="detail-background-title">${project.background}</div><figure class="modeling-artwork"><img src="${project.cover}" alt="3D Modeling 主视觉"></figure>
         <div class="detail-keywords left">3D<br>POSTER<br>MOTION<br>VISUAL EXPERIMENT</div><div class="detail-tag">${["Blender", "POSTER", "MOTION", "VISUAL EXPERIMENT"].map(tag).join("")}</div><strong class="detail-number">05</strong>
       </section>
@@ -127,7 +244,8 @@
     if (!root) return;
     const project = projects.find((item) => item.id === document.body.dataset.project);
     if (!project) return;
-    if (project.id === "graphic-poster") root.innerHTML = posterProjectDetail(project);
+    if (project.kind === "analysis") root.innerHTML = analysisProjectDetail(project);
+    else if (project.id === "graphic-poster") root.innerHTML = posterProjectDetail(project);
     else if (project.id === "3d-modeling") root.innerHTML = modelingProjectDetail(project);
     else root.innerHTML = mobileProjectDetail(project);
   }
@@ -136,6 +254,18 @@
     // Loading is an overlay: it never changes the Figma page proportions below it.
     const screen = $(".loading-screen");
     if (!screen) return;
+    const storageKey = "portfolioLoaderSeen";
+    let alreadySeen = false;
+    try {
+      alreadySeen = sessionStorage.getItem(storageKey) === "true";
+    } catch (error) {
+      alreadySeen = false;
+    }
+    if (alreadySeen) {
+      document.body.classList.add("is-loaded");
+      screen.remove();
+      return;
+    }
     const fill = $(".loading-fill", screen);
     const percent = $(".loading-percent", screen);
     let value = 0;
@@ -145,6 +275,11 @@
       percent.textContent = `LOADING ${value}%`;
       if (value === 100) {
         clearInterval(timer);
+        try {
+          sessionStorage.setItem(storageKey, "true");
+        } catch (error) {
+          // Storage can be unavailable in private modes; the loader still completes normally.
+        }
         setTimeout(() => { screen.classList.add("is-complete"); document.body.classList.add("is-loaded"); }, 220);
         setTimeout(() => screen.remove(), 950);
       }
@@ -186,13 +321,56 @@
         const link = event.target.closest("a[href]");
         if (link && event.button === 0 && !event.metaKey && !event.ctrlKey && !event.shiftKey && !event.altKey) {
           event.preventDefault();
-          window.location.assign(link.href);
+          navigateWithTransition(link.href);
         }
       }, true);
       track.addEventListener("wheel", (event) => {
         if (event.target.closest(".phone-screen, .tablet-screen")) return;
         if (Math.abs(event.deltaY) > Math.abs(event.deltaX) && track.scrollWidth > track.clientWidth) { event.preventDefault(); track.scrollLeft += event.deltaY; }
       }, { passive: false });
+    });
+  }
+
+  function initAnalysisModules() {
+    const modules = $$(".analysis-module");
+    if (!modules.length) return;
+
+    const setActive = (activeModule) => {
+      modules.forEach((module) => {
+        const isActive = module === activeModule;
+        module.classList.toggle("is-active", isActive);
+        module.setAttribute("aria-selected", isActive ? "true" : "false");
+      });
+    };
+
+    modules.forEach((module) => {
+      module.addEventListener("click", () => setActive(module));
+      module.addEventListener("keydown", (event) => {
+        if (event.key !== "Enter" && event.key !== " ") return;
+        event.preventDefault();
+        setActive(module);
+      });
+    });
+  }
+
+  function navigateWithTransition(href) {
+    document.body.classList.add("page-is-leaving");
+    setTimeout(() => window.location.assign(href), 180);
+  }
+
+  function initPageTransitions() {
+    if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    document.addEventListener("click", (event) => {
+      const link = event.target.closest("a[href]");
+      if (!link || event.defaultPrevented) return;
+      if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+      if (link.target || link.hasAttribute("download")) return;
+      const url = new URL(link.href, window.location.href);
+      if (url.origin !== window.location.origin) return;
+      if (url.pathname === window.location.pathname && url.hash) return;
+      if (!["http:", "https:"].includes(url.protocol)) return;
+      event.preventDefault();
+      navigateWithTransition(url.href);
     });
   }
 
@@ -611,6 +789,29 @@
     gallery.addEventListener("pointerdown", expire, true);
   }
 
+  function initScrollTopOrb() {
+    if ($(".scroll-top-orb")) return;
+
+    const button = document.createElement("button");
+    button.className = "scroll-top-orb";
+    button.type = "button";
+    button.setAttribute("aria-label", "回到页面顶部");
+    button.innerHTML = "<span aria-hidden=\"true\">↑</span>";
+    document.body.appendChild(button);
+
+    const update = () => {
+      button.classList.toggle("is-visible", window.scrollY > 520);
+    };
+
+    button.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      button.blur();
+    });
+
+    update();
+    window.addEventListener("scroll", update, { passive: true });
+  }
+
   if (document.body.dataset.page === "detail") renderDetail();
-  initDesktopScale(); initLoading(); initMenu(); initExperienceCards(); initClickSpark(); initDragScroll(); initPosterStacks(); initPosterCycleHint(); initDraggablePosters(); initPosterDragHint(); initPosterGallery(); initVideos(); initPhoneScreens(); initReveal(); initContact();
+  initDesktopScale(); initLoading(); initMenu(); initExperienceCards(); initClickSpark(); initDragScroll(); initAnalysisModules(); initPageTransitions(); initPosterStacks(); initPosterCycleHint(); initDraggablePosters(); initPosterDragHint(); initPosterGallery(); initVideos(); initPhoneScreens(); initReveal(); initContact(); initScrollTopOrb();
 })();
