@@ -12,16 +12,20 @@
     </div>`;
 
   function phoneMockup([label, src, initial = 0], className = "") {
+    const altLabel = label || "作品预览";
+    const caption = label ? `<figcaption>${label}</figcaption>` : "";
     return `<figure class="phone-mockup ${className}">
-      <div class="phone-shell"><span class="dynamic-island"></span><div class="phone-screen" tabindex="0" data-initial-scroll="${initial}" aria-label="${label}，可在手机屏幕内上下滚动"><img src="${src}" alt="${label} 长图"></div><span class="phone-home"></span></div>
-      <figcaption>${label}</figcaption>
+      <div class="phone-shell"><span class="dynamic-island"></span><div class="phone-screen" tabindex="0" data-initial-scroll="${initial}" aria-label="${altLabel}，可在手机屏幕内上下滚动"><img src="${src}" alt="${altLabel} 长图"></div><span class="phone-home"></span></div>
+      ${caption}
     </figure>`;
   }
 
   function tabletMockup([label, src, initial = 0], className = "") {
+    const altLabel = label || "作品预览";
+    const caption = label ? `<figcaption>${label}</figcaption>` : "";
     return `<figure class="tablet-mockup ${className}">
-      <div class="tablet-shell"><span class="tablet-camera"></span><div class="tablet-screen" tabindex="0" data-initial-scroll="${initial}" aria-label="${label}，可在 iPad 屏幕内上下滚动"><img src="${src}" alt="${label} 长图"></div></div>
-      <figcaption>${label}</figcaption>
+      <div class="tablet-shell"><span class="tablet-camera"></span><div class="tablet-screen" tabindex="0" data-initial-scroll="${initial}" aria-label="${altLabel}，可在 iPad 屏幕内上下滚动"><img src="${src}" alt="${altLabel} 长图"></div></div>
+      ${caption}
     </figure>`;
   }
 

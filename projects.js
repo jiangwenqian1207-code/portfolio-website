@@ -26,8 +26,8 @@ window.PORTFOLIO_PROJECTS = [
         title: "SCREENS DISPLAY",
         note: "新榜“智汇”落地页 / 新榜“小豆芽”星推官招募活动落地页",
         screens: [
-          ["HOME FEED", "/images/projects/newrank-ui-design/zhihui-promotion-mobile.png", 0],
-          ["ARTICLE DETAIL", "/images/projects/newrank-ui-design/xiaodouya-landing-promo-page.png", 0, "tablet"]
+          ["新榜“智汇”落地页", "/images/projects/newrank-ui-design/zhihui-promotion-mobile.png", 0],
+          ["“小豆芽”星推官招募活动落地页", "/images/projects/newrank-ui-design/xiaodouya-landing-promo-page.png", 0, "tablet"]
         ]
       }
     ],
@@ -75,16 +75,16 @@ window.PORTFOLIO_PROJECTS = [
         title: "SCREENS DISPLAY",
         note: "“618焕新季”公众号推文 / “世界杯足球季”公众号推文",
         screens: [
-          ["LAUNCH KV", "/images/projects/xgimi-visual-marketing/social-posts/midyear-refresh-social-post-618.png", 0],
-          ["E-COMMERCE", "/images/projects/xgimi-visual-marketing/social-posts/football-season-rules-social-post-02-mobile.jpg", 0]
+          ["", "/images/projects/xgimi-visual-marketing/social-posts/midyear-refresh-social-post-618.png", 0],
+          ["", "/images/projects/xgimi-visual-marketing/social-posts/football-season-rules-social-post-02-mobile.jpg", 0]
         ]
       },
       {
         title: "SCREENS DISPLAY",
         note: "2026“以旧换新”公众号推文 / 极米 X50 Ultra 系列“新品上市”公众号推文",
         screens: [
-          ["SOCIAL MEDIA", "/images/projects/xgimi-visual-marketing/social-posts/trade-in-renewal-social-post-2024-06-12.png", 0],
-          ["EVENT VISUAL", "/images/projects/xgimi-visual-marketing/social-posts/new-product-detail-social-post.png", 0]
+          ["", "/images/projects/xgimi-visual-marketing/social-posts/trade-in-renewal-social-post-2024-06-12.png", 0],
+          ["", "/images/projects/xgimi-visual-marketing/social-posts/new-product-detail-social-post.png", 0]
         ]
       }
     ],
@@ -133,8 +133,8 @@ window.PORTFOLIO_PROJECTS = [
         title: "SCREENS DISPLAY",
         note: "极米 & MEMO 联合发 EDM 优惠券 / 欧洲新品尾款支付 EDM",
         screens: [
-          ["GLOBAL KV", "/images/projects/xgimi-visual-marketing/social-posts/EDM.png", 0],
-          ["AMAZON PDP", "/images/projects/xgimi-visual-marketing/social-posts/pay balance EDM.png", 0]
+          ["", "/images/projects/xgimi-visual-marketing/social-posts/EDM.png", 0],
+          ["", "/images/projects/xgimi-visual-marketing/social-posts/pay balance EDM.png", 0]
         ]
       }
     ],
@@ -178,12 +178,12 @@ window.PORTFOLIO_PROJECTS = [
     file: "project-04-graphic-poster.html",
     number: "04",
     title: "GRAPHIC POSTER",
-    shortTitle: "GRAPHIC POSTER",
+    shortTitle: "蜀锦纹样植物数字模型",
     background: "GRAPHIC\nPOSTER",
     year: "2025 / 11",
     type: "ART DIRECTION",
     intro: "以实验排版、3D 建模及渲染为核心的系列海报。\n强调观看节奏、尺度冲突与展览式叙事。",
-    cover: "/images/projects/school-course-projects/01-shu-brocade-floral-patterns/posters/orchid-poster.jpg",
+    cover: "/images/projects/school-course-projects/01-shu-brocade-floral-patterns/posters/21.jpg",
     galleryNote: "蜀锦纹样与植物相结合的数字作品",
     posters: [
       "/images/projects/school-course-projects/01-shu-brocade-floral-patterns/posters/orchid-poster.jpg",
@@ -323,7 +323,7 @@ window.PORTFOLIO_PROJECTS = [
     file: "project-03-xgimi-edm-analysis.html",
     number: "03",
     title: "极米欧美新品付尾款 EDM设计",
-    titleLines: ["极米欧美新品付尾款", "EDM设计"],
+    titleLines: ["极米欧美新品", "付尾款EDM设计"],
     shortTitle: "极米海外付尾款 EDM",
     client: "极米科技有限公司",
     year: "2026.07",

@@ -11,24 +11,28 @@ const modelItems = [
     nameZh: "兰花",
     nameEn: "Orchid",
     path: "/models/orchid.glb",
+    frontRotationY: Math.PI,
   },
   {
     id: "hibiscus",
     nameZh: "芙蓉",
     nameEn: "Hibiscus",
     path: "/models/hibiscus.glb",
+    frontRotationY: Math.PI,
   },
   {
     id: "narcissus",
     nameZh: "水仙",
     nameEn: "Narcissus",
     path: "/models/narcissus.glb",
+    frontRotationY: Math.PI,
   },
   {
     id: "chrysanthemum",
     nameZh: "菊花",
     nameEn: "Chrysanthemum",
     path: "/models/chrysanthemum.glb",
+    frontRotationY: Math.PI,
   },
   {
     id: "plum-blossom",
@@ -211,7 +215,7 @@ function FittedModel({ item, transitionPhase, paused }) {
 
   return (
     <group ref={transitionRef}>
-      <group ref={modelRef} scale={normalized.scale} position={[0, -0.14, 0]}>
+      <group ref={modelRef} scale={normalized.scale} position={[0, -0.14, 0]} rotation={[0, item.frontRotationY ?? 0, 0]}>
         <primitive object={normalized.clone} position={[-normalized.center.x, -normalized.center.y, -normalized.center.z]} />
         <AutoRotate groupRef={modelRef} paused={paused} />
       </group>

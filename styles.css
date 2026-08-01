@@ -360,16 +360,18 @@ body.page-is-leaving::after { transform: scaleY(1); }
 .analysis-keywords { margin-top: 28px; color: var(--color-lavender); font-size: 12px; font-weight: 900; letter-spacing: .11em; }
 .analysis-hero-visual { position: absolute; z-index: 3; right: 62px; top: 50%; overflow: hidden; border-radius: 26px; background: var(--color-off-white); box-shadow: 0 44px 60px rgba(0,0,0,.42); transform: translateY(-50%); animation-delay: .1s; }
 .analysis-hero-visual img { width: 100%; height: 100%; object-fit: cover; }
-.analysis-browser { width: min(54vw,760px); height: clamp(430px,58vh,560px); margin-top: -132px; overflow-x: hidden; overflow-y: auto; padding: 44px 22px 22px; scroll-behavior: smooth; scrollbar-width: thin; touch-action: pan-y; }
+.analysis-browser { width: min(54vw,760px); height: clamp(430px,58vh,560px); margin-top: -178px; overflow-x: hidden; overflow-y: auto; padding: 44px 22px 22px; scroll-behavior: smooth; scrollbar-width: thin; touch-action: pan-y; }
 .analysis-browser::-webkit-scrollbar { width: 8px; }
 .analysis-browser::-webkit-scrollbar-track { background: rgba(6,6,6,.08); border-radius: 999px; }
 .analysis-browser::-webkit-scrollbar-thumb { border-radius: 999px; background: rgba(184,167,255,.8); }
 .analysis-browser::before { content: ""; position: absolute; top: 22px; left: 30px; width: 9px; height: 9px; border-radius: 50%; background: #ff6b6b; box-shadow: 18px 0 0 #ffc94a, 36px 0 0 #53d769; }
 .analysis-browser img { width: 100%; height: auto; max-width: none; border-radius: 18px; object-fit: contain; object-position: top; }
-.analysis-wide { width: min(49vw,900px); aspect-ratio: 1080/460; top: 218px; right: 88px; border-radius: 0; background: transparent; box-shadow: none; transform: none; }
+.analysis-wide { width: min(43vw,780px); aspect-ratio: 1080/460; top: 218px; right: 88px; border-radius: 0; background: transparent; box-shadow: none; transform: none; }
 .analysis-wide img { border-radius: 0; object-fit: contain; object-position: center; }
 .analysis-poster { width: min(33vw,520px); height: 690px; top: 118px; right: 170px; background: transparent; box-shadow: 0 34px 80px rgba(0,0,0,.42); }
 .analysis-poster img { object-fit: cover; object-position: top; }
+body[data-project="xgimi-edm-analysis"] .analysis-poster { width: min(31vw,540px); height: auto; aspect-ratio: 1200 / 1655; top: 150px; right: 14vw; border-radius: 0; box-shadow: none; }
+body[data-project="xgimi-edm-analysis"] .analysis-poster img { object-fit: contain; object-position: center; }
 .analysis-background, .analysis-concept, .analysis-landing { padding: 92px 64px; }
 .analysis-background { position: relative; display: grid; min-height: 688px; grid-template-columns: minmax(420px,.72fr) minmax(680px,1fr); gap: clamp(96px,12vw,230px); padding: 112px 96px; }
 .analysis-background.has-goals { min-height: 980px; grid-template-columns: minmax(0,636px) minmax(0,668px); grid-template-rows: auto 1fr; column-gap: clamp(160px,21vw,414px); row-gap: 56px; align-content: start; overflow: hidden; }
@@ -380,8 +382,37 @@ body.page-is-leaving::after { transform: scaleY(1); }
 .analysis-background.has-goals .analysis-goals { grid-column: 2; grid-row: 1 / span 2; align-self: start; padding-top: 60px; }
 .analysis-section-head h2 { font-size: clamp(54px,3.75vw,72px); font-weight: 900; letter-spacing: -.04em; line-height: 1.08; }
 .analysis-section-head p { margin-top: 14px; font-size: clamp(26px,2.1vw,40px); font-weight: 900; }
-.analysis-body { align-self: start; max-width: 1020px; padding-top: 190px; color: rgba(6,6,6,.86); font-size: clamp(24px,1.65vw,32px); line-height: 1.55; }
+.analysis-body { align-self: start; max-width: 920px; padding-top: clamp(260px,18vw,330px); color: rgba(6,6,6,.86); font-size: clamp(20px,1.25vw,26px); line-height: 1.5; }
 .analysis-body p + p { margin-top: 18px; }
+@media (min-width: 901px) {
+  body[data-project="xgimi-football-analysis"] .analysis-background:not(.has-goals),
+  body[data-project="xgimi-edm-analysis"] .analysis-background:not(.has-goals) {
+    display: flex;
+    flex-direction: column;
+    gap: 64px;
+    min-height: 688px;
+    padding: 112px clamp(72px,6.9vw,133px);
+  }
+  body[data-project="xgimi-football-analysis"] .analysis-background:not(.has-goals) .analysis-body,
+  body[data-project="xgimi-edm-analysis"] .analysis-background:not(.has-goals) .analysis-body {
+    grid-column: auto;
+    max-width: none;
+    width: min(100%,1654px);
+    margin: 0 auto;
+    padding-top: 0;
+    font-size: clamp(22px,1.667vw,32px);
+    line-height: 1.25;
+  }
+  body[data-project="xgimi-football-analysis"] .analysis-background:not(.has-goals) .analysis-section-head,
+  body[data-project="xgimi-edm-analysis"] .analysis-background:not(.has-goals) .analysis-section-head {
+    width: min(100%,1654px);
+    margin: 0 auto;
+  }
+  body[data-project="xgimi-football-analysis"] .analysis-background:not(.has-goals) .analysis-body p + p,
+  body[data-project="xgimi-edm-analysis"] .analysis-background:not(.has-goals) .analysis-body p + p {
+    margin-top: 32px;
+  }
+}
 .analysis-goals { display: grid; align-content: start; gap: 58px; padding-top: 90px; }
 .analysis-goals h3 { margin-bottom: 8px; font-size: clamp(54px,3.75vw,72px); font-weight: 900; letter-spacing: -.035em; line-height: 1.08; }
 .analysis-goals p { display: grid; grid-template-columns: 92px minmax(0,430px); gap: 42px; align-items: center; }
@@ -527,6 +558,7 @@ body.page-is-leaving::after { transform: scaleY(1); }
   .poster-stack { width: 100%; height: 480px; transform: scale(.82); transform-origin: top center; }
   .poster-stack:not(.single-poster) .poster-tap-hint { position: absolute; z-index: 12; left: 50%; bottom: -62px; display: inline-flex; align-items: center; justify-content: center; padding: 9px 14px; border-radius: 999px; color: var(--color-black); font-size: 12px; font-weight: 900; letter-spacing: .04em; background: rgba(225,218,255,.94); box-shadow: 0 10px 24px rgba(45,32,105,.16); transform: translateX(-50%); white-space: nowrap; pointer-events: none; }
   .poster-stack.single-poster { height: 390px; }
+  body[data-project="xgimi-domestic"] .poster-stack.single-poster { height: 540px; transform: scale(1.23); }
   .poster-stack.single-poster .poster-card { width: 255px !important; height: 340px !important; }
   .next-section { min-height: 360px; padding: 32px 24px; }
   .next-project { min-height: 290px; padding: 28px 24px; }
