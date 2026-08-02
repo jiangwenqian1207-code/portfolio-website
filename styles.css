@@ -68,7 +68,7 @@ h1, h2, h3, p, figure { margin: 0; }
 .button-accent:hover, .back-button:hover { transform: translateY(-3px) scale(1.02); box-shadow: 0 14px 30px rgba(184,167,255,.28); }
 .button-accent b { transition: transform .25s ease; }
 .button-accent:hover b { transform: translate(4px,-4px); }
-.identity-wrap { position: relative; padding-top: 88px; }
+.identity-wrap { position: relative; left: -24px; padding-top: 88px; }
 .lanyard { position: absolute; top: 0; left: 50%; width: 32px; height: 104px; border-radius: 0 0 18px 18px; background: var(--color-lavender); transform: translateX(-50%); }
 .identity-card { position: relative; padding: 32px; border: 2px solid var(--color-black); border-radius: var(--radius-card); color: var(--color-black); background: var(--color-off-white); box-shadow: 12px 12px 0 var(--color-lavender); transform: rotate(1.5deg); }
 .identity-photo { height: 240px; overflow: hidden; margin-bottom: 14px; border-radius: 16px; background: var(--color-lavender); }
@@ -352,6 +352,7 @@ body.page-is-leaving::after { transform: scaleY(1); }
 .analysis-topline { display: flex; align-items: center; gap: 20px; color: var(--color-gray); font-size: 12px; font-weight: 900; letter-spacing: .12em; }
 .analysis-topline strong { color: var(--color-lavender); font-size: 52px; letter-spacing: -.04em; }
 .analysis-hero h1 { max-width: 620px; margin-top: 48px; color: var(--color-white); font-size: clamp(50px,4.6vw,72px); font-weight: 900; letter-spacing: -.04em; line-height: 1.1; }
+.analysis-title-desktop { display: none; }
 .analysis-title-line { display: block; }
 .analysis-title-line + .analysis-title-line::before { content: ""; }
 .analysis-client { margin-top: 24px; color: rgba(255,255,255,.82); font-size: 22px; font-weight: 700; }
@@ -385,6 +386,209 @@ body[data-project="xgimi-edm-analysis"] .analysis-poster img { object-fit: conta
 .analysis-body { align-self: start; max-width: 920px; padding-top: clamp(260px,18vw,330px); color: rgba(6,6,6,.86); font-size: clamp(20px,1.25vw,26px); line-height: 1.5; }
 .analysis-body p + p { margin-top: 18px; }
 @media (min-width: 901px) {
+  .analysis-title-mobile { display: none; }
+  .analysis-title-desktop { display: block; }
+  body[data-project="newrank-xiaodouya-analysis"] .analysis-hero,
+  body[data-project="xgimi-football-analysis"] .analysis-hero,
+  body[data-project="xgimi-edm-analysis"] .analysis-hero {
+    height: clamp(680px,60.4167vw,870px);
+    min-height: 0;
+    overflow: hidden;
+  }
+  body[data-project="newrank-xiaodouya-analysis"] .analysis-hero {
+    padding: clamp(42px,4.5833vw,66px) min(4.0104vw,57.75px);
+  }
+  body[data-project="xgimi-football-analysis"] .analysis-hero {
+    padding: clamp(42px,4.5833vw,66px) min(3.8542vw,55.5px);
+  }
+  body[data-project="xgimi-edm-analysis"] .analysis-hero {
+    padding: clamp(42px,4.5833vw,66px) min(5vw,72px);
+  }
+  body[data-project="newrank-xiaodouya-analysis"] .analysis-hero > .back-button,
+  body[data-project="xgimi-football-analysis"] .analysis-hero > .back-button,
+  body[data-project="xgimi-edm-analysis"] .analysis-hero > .back-button {
+    top: 18px;
+    right: clamp(24px,3.3333vw,48px);
+    left: auto;
+    padding: 9px 13.5px;
+    font-size: 9px;
+  }
+  body[data-project="newrank-xiaodouya-analysis"] .analysis-hero-copy,
+  body[data-project="xgimi-football-analysis"] .analysis-hero-copy,
+  body[data-project="xgimi-edm-analysis"] .analysis-hero-copy {
+    padding-top: 0;
+  }
+  body[data-project="newrank-xiaodouya-analysis"] .analysis-topline,
+  body[data-project="xgimi-football-analysis"] .analysis-topline,
+  body[data-project="xgimi-edm-analysis"] .analysis-topline {
+    height: min(3.75vw,54px);
+    gap: min(.4167vw,6px);
+    font-size: clamp(18px,1.875vw,27px);
+    line-height: 1.12;
+    letter-spacing: .06em;
+    white-space: nowrap;
+  }
+  body[data-project="newrank-xiaodouya-analysis"] .analysis-topline strong,
+  body[data-project="xgimi-football-analysis"] .analysis-topline strong,
+  body[data-project="xgimi-edm-analysis"] .analysis-topline strong {
+    font-size: clamp(34px,3.3333vw,48px);
+    line-height: 1.1;
+  }
+  body[data-project="newrank-xiaodouya-analysis"] .analysis-hero h1,
+  body[data-project="xgimi-football-analysis"] .analysis-hero h1,
+  body[data-project="xgimi-edm-analysis"] .analysis-hero h1 {
+    margin-top: clamp(100px,11.0938vw,159.75px);
+    font-size: clamp(50px,4.7917vw,69px);
+    line-height: 1.2609;
+    letter-spacing: 0;
+  }
+  body[data-project="newrank-xiaodouya-analysis"] .analysis-client,
+  body[data-project="xgimi-football-analysis"] .analysis-client,
+  body[data-project="xgimi-edm-analysis"] .analysis-client {
+    font-size: clamp(17px,1.4583vw,21px);
+    font-weight: 500;
+    line-height: 1.43;
+  }
+  body[data-project="newrank-xiaodouya-analysis"] .analysis-role,
+  body[data-project="xgimi-football-analysis"] .analysis-role,
+  body[data-project="xgimi-edm-analysis"] .analysis-role {
+    font-size: clamp(14px,1.25vw,18px);
+    line-height: 1.333;
+  }
+  body[data-project="newrank-xiaodouya-analysis"] .analysis-keywords,
+  body[data-project="xgimi-football-analysis"] .analysis-keywords,
+  body[data-project="xgimi-edm-analysis"] .analysis-keywords {
+    font-size: clamp(10px,.8333vw,12px);
+    line-height: 1.25;
+    letter-spacing: .08em;
+  }
+
+  body[data-project="newrank-xiaodouya-analysis"] .analysis-hero-copy {
+    width: min(39.0104vw,561.75px);
+  }
+  body[data-project="newrank-xiaodouya-analysis"] .analysis-hero h1 {
+    width: 100%;
+    max-width: none;
+    height: min(11.5104vw,165.75px);
+  }
+  body[data-project="newrank-xiaodouya-analysis"] .analysis-client {
+    width: min(32.2917vw,465px);
+    margin-top: min(3.3333vw,48px);
+  }
+  body[data-project="newrank-xiaodouya-analysis"] .analysis-role {
+    width: min(32.2917vw,465px);
+    margin-top: min(.8333vw,12px);
+    gap: clamp(24px,3.125vw,45px);
+  }
+  body[data-project="newrank-xiaodouya-analysis"] .analysis-divider {
+    width: min(435px,calc(100% - 30px));
+    margin-top: min(2.3958vw,34.5px);
+  }
+  body[data-project="newrank-xiaodouya-analysis"] .analysis-keywords {
+    width: min(32.2917vw,465px);
+    margin-top: min(2.3958vw,34.5px);
+  }
+  body[data-project="newrank-xiaodouya-analysis"] .analysis-browser {
+    top: min(13.4896vw,194.25px);
+    right: auto;
+    left: min(43.0208vw,619.5px);
+    width: min(51.9715vw,748.389px);
+    height: min(37.5vw,540px);
+    margin: 0;
+    padding: min(3.75vw,54px) min(1.4583vw,21px) min(1.5625vw,22.5px);
+    border-radius: min(1.7708vw,25.5px);
+    box-shadow: 0 33px 30px rgba(0,0,0,.42);
+    transform: none;
+  }
+  body[data-project="newrank-xiaodouya-analysis"] .analysis-browser::before {
+    top: min(1.3542vw,19.5px);
+    left: min(1.7708vw,25.5px);
+    width: min(.625vw,9px);
+    height: min(.625vw,9px);
+    box-shadow: min(1.25vw,18px) 0 0 #ffc94a, min(2.5vw,36px) 0 0 #53d769;
+  }
+  body[data-project="newrank-xiaodouya-analysis"] .analysis-browser img {
+    border-radius: min(.9375vw,13.5px);
+  }
+
+  body[data-project="xgimi-football-analysis"] .analysis-hero-copy {
+    width: min(33.8542vw,487.5px);
+  }
+  body[data-project="xgimi-football-analysis"] .analysis-hero h1 {
+    width: 100%;
+    max-width: none;
+    height: min(12.9167vw,186px);
+  }
+  body[data-project="xgimi-football-analysis"] .analysis-client {
+    margin-top: min(1.9271vw,27.75px);
+  }
+  body[data-project="xgimi-football-analysis"] .analysis-role {
+    margin-top: min(1.1979vw,17.25px);
+    gap: clamp(22px,2.6042vw,37.5px);
+  }
+  body[data-project="xgimi-football-analysis"] .analysis-divider {
+    width: min(32.2917vw,465px);
+    margin-top: min(1.9271vw,27.75px);
+  }
+  body[data-project="xgimi-football-analysis"] .analysis-keywords {
+    width: min(29.2188vw,420.75px);
+    margin-top: min(2.0833vw,30px);
+  }
+  body[data-project="xgimi-football-analysis"] .analysis-wide {
+    top: min(20.2344vw,291.375px);
+    right: auto;
+    left: min(39.0625vw,562.5px);
+    width: min(55.9375vw,805.5px);
+    height: min(23.9583vw,345px);
+    aspect-ratio: auto;
+    margin: 0;
+    transform: none;
+  }
+  body[data-project="xgimi-football-analysis"] .analysis-wide img {
+    object-fit: cover;
+    object-position: center;
+  }
+
+  body[data-project="xgimi-edm-analysis"] .analysis-hero-copy {
+    width: min(43.2813vw,623.25px);
+  }
+  body[data-project="xgimi-edm-analysis"] .analysis-hero h1 {
+    width: 100%;
+    max-width: none;
+    height: min(10.7813vw,155.25px);
+    margin-top: clamp(104px,11.5625vw,166.5px);
+  }
+  body[data-project="xgimi-edm-analysis"] .analysis-client {
+    width: min(32.9167vw,474px);
+    margin-top: min(4.0625vw,58.5px);
+  }
+  body[data-project="xgimi-edm-analysis"] .analysis-role {
+    width: min(32.9167vw,474px);
+    margin-top: min(1.7188vw,24.75px);
+    gap: clamp(22px,2.6042vw,37.5px);
+  }
+  body[data-project="xgimi-edm-analysis"] .analysis-divider {
+    width: min(32.2917vw,465px);
+    margin-top: min(1.7188vw,24.75px);
+  }
+  body[data-project="xgimi-edm-analysis"] .analysis-keywords {
+    width: min(32.9167vw,474px);
+    margin-top: min(1.7188vw,24.75px);
+  }
+  body[data-project="xgimi-edm-analysis"] .analysis-poster {
+    top: min(9.1146vw,131.25px);
+    right: auto;
+    left: min(51.0417vw,735px);
+    width: min(34.1667vw,492px);
+    height: min(47.0833vw,678px);
+    aspect-ratio: auto;
+    margin: 0;
+    transform: none;
+  }
+  body[data-project="xgimi-edm-analysis"] .analysis-poster img {
+    object-fit: contain;
+    object-position: center;
+  }
   body[data-project="xgimi-football-analysis"] .analysis-background:not(.has-goals),
   body[data-project="xgimi-edm-analysis"] .analysis-background:not(.has-goals) {
     display: flex;
@@ -482,7 +686,7 @@ body[data-project="xgimi-edm-analysis"] .analysis-poster img { object-fit: conta
   .home-hero { min-height: 980px; grid-template-columns: 1fr; gap: 30px; align-content: center; padding-top: 112px; }
   .hero-title-wrap h1, .hero-title-shadow { font-size: clamp(54px,15vw,76px); }
   .hero-subtitle { font-size: 15px; line-height: 1.6; }
-  .identity-wrap { width: min(100%,342px); justify-self: center; }
+  .identity-wrap { left: 0; width: min(100%,342px); justify-self: center; }
   .identity-card { padding: 24px; }
   .identity-photo { height: 220px; }
   .works-strip { min-height: 430px; padding-top: 42px; }

@@ -167,6 +167,7 @@ window.PORTFOLIO_PROJECTS = [
       "/images/projects/xgimi-visual-marketing/amazon-detail-pages/pc-a-plus-14.jpg",
       "/images/projects/xgimi-visual-marketing/amazon-detail-pages/pc-a-plus-15.jpg"
     ],
+    remainingTitle: "亚马逊产品详情页",
     details: [
       ["GLOBAL VISUAL", "Premium product focus\nEditorial scale\nConsistent global voice"],
       ["LOCALIZATION", "Flexible copy zones\nRegional crops\nMarketplace modules"],
@@ -324,6 +325,7 @@ window.PORTFOLIO_PROJECTS = [
     number: "03",
     title: "极米欧美新品付尾款 EDM设计",
     titleLines: ["极米欧美新品", "付尾款EDM设计"],
+    desktopTitleLines: ["极米欧美新品付尾款", "EDM设计"],
     shortTitle: "极米海外付尾款 EDM",
     client: "极米科技有限公司",
     year: "2026.07",

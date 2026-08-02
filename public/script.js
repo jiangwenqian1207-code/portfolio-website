@@ -54,15 +54,17 @@
   }
 
   function analysisHero(project) {
-    const heroTitle = Array.isArray(project.titleLines) && project.titleLines.length
-      ? project.titleLines.map((line) => `<span class="analysis-title-line">${line}</span>`).join("")
+    const titleMarkup = (lines) => Array.isArray(lines) && lines.length
+      ? lines.map((line) => `<span class="analysis-title-line">${line}</span>`).join("")
       : project.title;
+    const heroTitle = titleMarkup(project.titleLines);
+    const desktopHeroTitle = titleMarkup(project.desktopTitleLines || project.titleLines);
 
     return `<section class="analysis-hero section-dark">
       <a class="back-button" href="./index.html#works">← 返回作品列表</a>
       <div class="analysis-hero-copy">
         <div class="analysis-topline"><strong>${project.number}</strong><span>${project.category}</span></div>
-        <h1>${heroTitle}</h1>
+      <h1><span class="analysis-title-mobile">${heroTitle}</span><span class="analysis-title-desktop">${desktopHeroTitle}</span></h1>
         <p class="analysis-client">${project.client}</p>
         <p class="analysis-role">角色：${project.role}<span>日期：${project.year}</span></p>
         <div class="analysis-divider"></div>
@@ -153,7 +155,8 @@
 
   function remainingDesigns(project) {
     if (!project.remaining?.length) return "";
-    return `<section class="remaining-section remaining-${project.number} ${project.number === "02" ? "section-light" : "section-lavender"}"><h2 class="detail-heading reveal">REMAINING DESIGNS</h2><div class="remaining-grid">${project.remaining.map((src, index) => `<img src="${src}" alt="${project.title} remaining design ${index + 1}">`).join("")}</div></section>`;
+    const title = project.remainingTitle || "REMAINING DESIGNS";
+    return `<section class="remaining-section remaining-${project.number} ${project.number === "02" ? "section-light" : "section-lavender"}"><h2 class="detail-heading reveal">${title}</h2><div class="remaining-grid">${project.remaining.map((src, index) => `<img src="${src}" alt="${project.title} remaining design ${index + 1}">`).join("")}</div></section>`;
   }
 
   function screensSections(project) {
