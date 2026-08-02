@@ -1,7 +1,15 @@
 import React, { Suspense, useCallback, useMemo, useRef, useState } from "react";
 import { createRoot } from "react-dom/client";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
-import { ContactShadows, Html, OrbitControls, useGLTF, useProgress } from "@react-three/drei";
+import {
+  ContactShadows,
+  Environment,
+  Html,
+  Lightformer,
+  OrbitControls,
+  useGLTF,
+  useProgress,
+} from "@react-three/drei";
 import * as THREE from "three";
 import "./styles.css";
 
@@ -66,6 +74,16 @@ function getProjectDescription(item) {
 
 function cloneMaterialForFade(material) {
   const cloned = material.clone();
+  if (cloned.color) {
+    cloned.color.offsetHSL(0, 0.1, -0.025);
+  }
+  if ("metalness" in cloned) {
+    cloned.metalness = Math.min(cloned.metalness, 0.68);
+  }
+
+  if ("roughness" in cloned) {
+    cloned.roughness = Math.max(cloned.roughness, 0.38);
+  }
   cloned.transparent = true;
   cloned.needsUpdate = true;
 
@@ -277,12 +295,51 @@ function Scene({
     <>
       <color attach="background" args={["#030303"]} />
       <fog attach="fog" args={["#030303", 8, 15]} />
-      <ambientLight intensity={0.95} />
-      <directionalLight position={[3.8, 5.6, 4.8]} intensity={2.45} castShadow />
+      <ambientLight intensity={1.15} />
+      <hemisphereLight
+  color="#f3efff"
+  groundColor="#30283a"
+  intensity={0.85}
+/>
+      <directionalLight position={[3.8, 5.6, 4.8]} intensity={2.1} castShadow />
       <directionalLight position={[-4.6, 2.8, 3.6]} intensity={1.28} color="#f2ecff" />
       <directionalLight position={[0, 2.4, -4.8]} intensity={1.12} color="#b7a4ff" />
       <spotLight position={[0.25, 4.8, 5.2]} angle={0.46} penumbra={0.82} intensity={2.35} color="#ffffff" />
       <pointLight position={[-1.8, 1.8, 2.6]} intensity={0.82} color="#f7d7ff" distance={7} />
+      <Environment resolution={128} environmentIntensity={0.6}>
+  <Lightformer
+    form="rect"
+    intensity={3}
+    color="#ffffff"
+    position={[0, 4, 5]}
+    scale={[5, 5, 1]}
+    onUpdate={(light) => light.lookAt(0, 0, 0)}
+  />
+  <Lightformer
+    form="rect"
+    intensity={2.2}
+    color="#d8ccff"
+    position={[-4, 1.5, 2]}
+    scale={[3, 5, 1]}
+    onUpdate={(light) => light.lookAt(0, 0, 0)}
+  />
+  <Lightformer
+    form="rect"
+    intensity={2}
+    color="#ffd9ec"
+    position={[4, 0.5, 2]}
+    scale={[3, 4, 1]}
+    onUpdate={(light) => light.lookAt(0, 0, 0)}
+  />
+  <Lightformer
+    form="ring"
+    intensity={1.4}
+    color="#ffffff"
+    position={[0, 2, -4]}
+    scale={4}
+    onUpdate={(light) => light.lookAt(0, 0, 0)}
+  />
+</Environment>
     
 
       <ModelErrorBoundary key={visibleItem.id} item={visibleItem} onError={onEnterComplete}>
