@@ -1,7 +1,7 @@
 import React, { Suspense, useCallback, useMemo, useRef, useState } from "react";
 import { createRoot } from "react-dom/client";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
-import { ContactShadows, Environment, Html, OrbitControls, useGLTF, useProgress } from "@react-three/drei";
+import { ContactShadows, Html, OrbitControls, useGLTF, useProgress } from "@react-three/drei";
 import * as THREE from "three";
 import "./styles.css";
 
@@ -283,7 +283,7 @@ function Scene({
       <directionalLight position={[0, 2.4, -4.8]} intensity={1.12} color="#b7a4ff" />
       <spotLight position={[0.25, 4.8, 5.2]} angle={0.46} penumbra={0.82} intensity={2.35} color="#ffffff" />
       <pointLight position={[-1.8, 1.8, 2.6]} intensity={0.82} color="#f7d7ff" distance={7} />
-      <Environment preset="studio" environmentIntensity={0.72} />
+    
 
       <ModelErrorBoundary key={visibleItem.id} item={visibleItem} onError={onEnterComplete}>
         <Suspense fallback={<LoadingScreen item={visibleItem} />}>
@@ -483,12 +483,10 @@ function App() {
     };
   }, []);
 
-  React.useEffect(() => {
-    const previousItem = modelItems[wrapIndex(visibleIndex - 1)];
-    const nextItem = modelItems[wrapIndex(visibleIndex + 1)];
-    useGLTF.preload(previousItem.path);
-    useGLTF.preload(nextItem.path);
-  }, [visibleIndex]);
+React.useEffect(() => {
+  const nextItem = modelItems[wrapIndex(visibleIndex + 1)];
+  useGLTF.preload(nextItem.path);
+}, [visibleIndex]);
 
   React.useEffect(() => {
     const handleKeyDown = (event) => {
