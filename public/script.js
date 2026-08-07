@@ -360,12 +360,18 @@
     });
   }
 
+  function clearPageTransitionState() {
+    document.body.classList.remove("page-is-leaving");
+  }
+
   function navigateWithTransition(href) {
     document.body.classList.add("page-is-leaving");
     setTimeout(() => window.location.assign(href), 180);
+    setTimeout(clearPageTransitionState, 1200);
   }
 
   function initPageTransitions() {
+    window.addEventListener("pageshow", clearPageTransitionState);
     if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     document.addEventListener("click", (event) => {
       const link = event.target.closest("a[href]");

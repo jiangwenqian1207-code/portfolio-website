@@ -184,7 +184,7 @@ window.PORTFOLIO_PROJECTS = [
     year: "2025 / 11",
     type: "ART DIRECTION",
     intro: "以实验排版、3D 建模及渲染为核心的系列海报。\n强调观看节奏、尺度冲突与展览式叙事。",
-    cover: "/images/projects/school-course-projects/01-shu-brocade-floral-patterns/posters/21.jpg",
+    cover: "/images/projects/school-course-projects/01-shu-brocade-floral-patterns/posters/chrysanthemum-poster.jpg",
     galleryNote: "蜀锦纹样与植物相结合的数字作品",
     posters: [
       "/images/projects/school-course-projects/01-shu-brocade-floral-patterns/posters/orchid-poster.jpg",
