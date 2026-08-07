@@ -215,6 +215,9 @@ body.page-is-leaving::after { transform: scaleY(1); }
 .tablet-screen { position: absolute; inset: 18px; z-index: 2; overflow-y: auto; overscroll-behavior: contain; border-radius: 32px; background: var(--color-off-white); scrollbar-width: none; -webkit-overflow-scrolling: touch; touch-action: pan-y; }
 .tablet-screen::-webkit-scrollbar { display: none; }
 .tablet-screen img { display: block; width: 100%; height: auto; min-height: 100%; object-fit: cover; object-position: top; }
+.device-scroll-hint { position: absolute; z-index: 8; top: 0; left: 0; padding: 10px 16px; border: 1px solid rgba(255,255,255,.48); border-radius: 999px; color: var(--color-white); font-size: 13px; font-weight: 800; line-height: 1; letter-spacing: 0; background: rgba(6,6,6,.78); box-shadow: 0 10px 26px rgba(0,0,0,.28); opacity: 0; pointer-events: none; transform: translateY(6px); transition: opacity .35s ease, transform .35s ease; white-space: nowrap; backdrop-filter: blur(8px); }
+.device-scroll-hint.is-visible { opacity: 1; transform: none; }
+@media (hover: none), (pointer: coarse) { .device-scroll-hint { display: none; } }
 .hero-tablet { position: absolute; z-index: 4; top: 210px; left: 50%; transform: translateX(-50%); }
 .hero-tablet figcaption { display: none; }
 .hero-artwork-card { position: absolute; z-index: 4; top: 166px; left: 50%; width: 430px; filter: drop-shadow(0 26px 34px rgba(0,0,0,.34)); transform: translateX(-50%) rotate(-4deg); transform-origin: center; }

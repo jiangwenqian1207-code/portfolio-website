@@ -15,7 +15,7 @@
     const altLabel = label || "作品预览";
     const caption = label ? `<figcaption>${label}</figcaption>` : "";
     return `<figure class="phone-mockup ${className}">
-      <div class="phone-shell"><span class="dynamic-island"></span><div class="phone-screen" tabindex="0" data-initial-scroll="${initial}" aria-label="${altLabel}，可在手机屏幕内上下滚动"><img src="${src}" alt="${altLabel} 长图"></div><span class="phone-home"></span></div>
+      <div class="phone-shell"><span class="dynamic-island"></span><div class="phone-screen" tabindex="0" data-initial-scroll="${initial}" aria-label="${altLabel}，可在手机屏幕内上下滚动"><img src="${src}" alt="${altLabel} 长图"></div><span class="device-scroll-hint" aria-hidden="true">滑动滚轮查看</span><span class="phone-home"></span></div>
       ${caption}
     </figure>`;
   }
@@ -24,7 +24,7 @@
     const altLabel = label || "作品预览";
     const caption = label ? `<figcaption>${label}</figcaption>` : "";
     return `<figure class="tablet-mockup ${className}">
-      <div class="tablet-shell"><span class="tablet-camera"></span><div class="tablet-screen" tabindex="0" data-initial-scroll="${initial}" aria-label="${altLabel}，可在 iPad 屏幕内上下滚动"><img src="${src}" alt="${altLabel} 长图"></div></div>
+      <div class="tablet-shell"><span class="tablet-camera"></span><div class="tablet-screen" tabindex="0" data-initial-scroll="${initial}" aria-label="${altLabel}，可在 iPad 屏幕内上下滚动"><img src="${src}" alt="${altLabel} 长图"></div><span class="device-scroll-hint" aria-hidden="true">滑动滚轮查看</span></div>
       ${caption}
     </figure>`;
   }
@@ -577,11 +577,49 @@
   }
 
   function initPhoneScreens() {
-    $$(".phone-screen, .tablet-screen").forEach((screen) => {
+    $$(".phone-screen, .tablet-screen").forEach((screen, deviceIndex) => {
       const image = $("img", screen);
       const position = Number(screen.dataset.initialScroll || 0);
       const apply = () => { screen.scrollTop = Math.max(0, (screen.scrollHeight - screen.clientHeight) * position); };
       image?.complete ? apply() : image?.addEventListener("load", apply, { once: true });
+
+      const shell = screen.closest(".phone-shell, .tablet-shell");
+      if (!shell) return;
+      const hint = $(".device-scroll-hint", shell);
+      if (!hint || matchMedia("(hover: none), (pointer: coarse)").matches) return;
+
+      const hintStorageKey = `device-scroll-hint:${window.location.pathname}:${deviceIndex}`;
+      let hintWasShown = false;
+      try { hintWasShown = window.sessionStorage.getItem(hintStorageKey) === "1"; } catch {}
+      let hideTimer = 0;
+      const moveHint = (event) => {
+        const rect = shell.getBoundingClientRect();
+        const scaleX = shell.offsetWidth / rect.width;
+        const scaleY = shell.offsetHeight / rect.height;
+        const pointerX = (event.clientX - rect.left) * scaleX;
+        const pointerY = (event.clientY - rect.top) * scaleY;
+        const gap = 16;
+        const maxLeft = shell.offsetWidth - hint.offsetWidth - 8;
+        const maxTop = shell.offsetHeight - hint.offsetHeight - 8;
+        const left = pointerX + gap + hint.offsetWidth > shell.offsetWidth ? pointerX - hint.offsetWidth - gap : pointerX + gap;
+        const top = pointerY + gap + hint.offsetHeight > shell.offsetHeight ? pointerY - hint.offsetHeight - gap : pointerY + gap;
+        hint.style.left = `${Math.max(8, Math.min(left, maxLeft))}px`;
+        hint.style.top = `${Math.max(8, Math.min(top, maxTop))}px`;
+      };
+      shell.addEventListener("pointerenter", (event) => {
+        if (hintWasShown) return;
+        hintWasShown = true;
+        try { window.sessionStorage.setItem(hintStorageKey, "1"); } catch {}
+        window.clearTimeout(hideTimer);
+        moveHint(event);
+        hint.classList.add("is-visible");
+        hideTimer = window.setTimeout(() => hint.classList.remove("is-visible"), 3000);
+      });
+      shell.addEventListener("pointermove", moveHint);
+      shell.addEventListener("pointerleave", () => {
+        window.clearTimeout(hideTimer);
+        hint.classList.remove("is-visible");
+      });
     });
   }
 
