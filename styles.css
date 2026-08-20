@@ -430,6 +430,9 @@ body[data-project="xgimi-edm-analysis"] .analysis-poster img { object-fit: conta
 .analysis-body { align-self: start; max-width: 920px; padding-top: clamp(260px,18vw,330px); color: rgba(6,6,6,.86); font-size: clamp(20px,1.25vw,26px); line-height: 1.5; }
 .analysis-body p + p { margin-top: 18px; }
 @media (min-width: 901px) {
+  body[data-project="xgimi-overseas"] .campaign-stack-03 {
+    left: clamp(-64px, -4vw, -36px);
+  }
   .analysis-title-mobile { display: none; }
   .analysis-title-desktop { display: block; }
   body[data-project="newrank-xiaodouya-analysis"] .analysis-hero,
