@@ -23,7 +23,7 @@ window.PORTFOLIO_PROJECTS = [
     tools: ["FIGMA", "PHOTOSHOP", "ILLUSTRATOR", "AIGC"],
     screenGroups: [
       {
-        title: "SCREENS DISPLAY",
+        title: "公众号推文设计",
         note: "新榜“智汇”落地页 / 新榜“小豆芽”星推官招募活动落地页",
         screens: [
           ["新榜“智汇”落地页", "/images/projects/newrank-ui-design/zhihui-promotion-mobile.png", 0],
@@ -72,7 +72,7 @@ window.PORTFOLIO_PROJECTS = [
     tools: ["AIGC", "PHOTOSHOP", "ILLUSTRATOR", "FIGMA"],
     screenGroups: [
       {
-        title: "SCREENS DISPLAY",
+        title: "公众号推文设计",
         note: "“618焕新季”公众号推文 / “世界杯足球季”公众号推文",
         screens: [
           ["", "/images/projects/xgimi-visual-marketing/social-posts/midyear-refresh-social-post-618.png", 0],
@@ -90,12 +90,17 @@ window.PORTFOLIO_PROJECTS = [
     ],
     posters: [
       "/images/projects/xgimi-visual-marketing/posters/football-season-campaign-poster.png",
-      "/images/projects/xgimi-visual-marketing/posters/japan-unboxing-social-poster.png",
-      "/images/projects/xgimi-visual-marketing/posters/japan-social-poster.png"
+      "/images/projects/xgimi-visual-marketing/posters/commercial-display-poster.png"
     ],
     stackTheme: "lavender",
-    stackVariant: "single-poster",
-    stackDescription: "围绕世界杯足球季与国内活动节点，延展公众号推文、社媒海报和长图物料。设计重点在于用清晰的信息分区承载活动规则，同时保持极米产品的科技感与品牌一致性。",
+    campaignShowcase: {
+      title: "国内社媒海报设计",
+      theme: "lavender",
+      copy: [
+        ["足球季冠军预测海报：", "延续世界杯足球季主视觉，沿用了主 K 背景中的球场元素。重点突出对战信息与比分竞猜。通过展示当前阶段公司主推产品，完成品牌露出。足球元素呼应主题，奖杯元素呼应冠军之夜。"],
+        ["极米行业显示 · 成都双年展收官海报：", "极米行业显示作为技术支持方，与成都市美术馆合作，共同呈现 2026 年“烟火指数 · 成都双年展”。海报以极米商用品牌色蓝紫渐变为基础，沿用激光光束元素，形成具有视觉冲击力的主视觉；文案排版保持清晰、克制与精致，符合 3C 品牌调性。"]
+      ]
+    },
     remaining: [
       "/images/projects/xgimi-visual-marketing/social-posts/football-season-campaign-banner.jpg",
       "/images/projects/xgimi-visual-marketing/social-posts/xgimi-x50-new-product-banner.png"
@@ -118,10 +123,10 @@ window.PORTFOLIO_PROJECTS = [
     intro: "面向海外市场的整合营销视觉，服务多区域电商平台、社交媒体与品牌传播渠道。",
     keywordsLeft: ["GLOBAL CAMPAIGN", "LOCALIZATION", "MARKETPLACE"],
     keywordsRight: ["SOCIAL ASSETS", "BRAND SYSTEM", "MOTION"],
-    cover: "/images/projects/xgimi-visual-marketing/posters/japan-unboxing-social-poster.png",
+    cover: "/images/projects/xgimi-visual-marketing/posters/japan-sns-giveaway-poster.png",
     heroDevice: "artwork",
     heroVariant: "overseas-poster",
-    heroScreen: ["XGIMI GLOBAL", "/images/projects/xgimi-visual-marketing/posters/japan-unboxing-social-poster.png", 0],
+    heroScreen: ["XGIMI GLOBAL", "/images/projects/xgimi-visual-marketing/posters/japan-sns-giveaway-poster.png", 0],
     overview: [
       ["项目背景", "海外市场渠道分散、语言与场景差异明显，需要统一品牌表达并保留本地化弹性。"],
       ["设计目标", "用模块化视觉系统支持多区域快速适配，强化高端科技感与生活方式叙事。"],
@@ -130,7 +135,7 @@ window.PORTFOLIO_PROJECTS = [
     tools: ["Figma", "PHOTOSHOP", "ILLUSTRATOR", "AIGC"],
     screenGroups: [
       {
-        title: "SCREENS DISPLAY",
+        title: "海外 EDM 设计",
         note: "极米 & MEMO 联合发 EDM 优惠券 / 欧洲新品尾款支付 EDM",
         screens: [
           ["", "/images/projects/xgimi-visual-marketing/social-posts/EDM.png", 0],
@@ -139,12 +144,29 @@ window.PORTFOLIO_PROJECTS = [
       }
     ],
     posters: [
+      "/images/projects/xgimi-visual-marketing/posters/japan-sns-giveaway-poster.png",
       "/images/projects/xgimi-visual-marketing/posters/japan-unboxing-social-poster.png",
       "/images/projects/xgimi-visual-marketing/posters/japan-social-poster.png",
       "/images/projects/xgimi-visual-marketing/posters/japan-unboxing-social-poster2.png"
     ],
     stackTheme: "light",
-    stackDescription: "针对日本社媒平台完成活动海报设计：将复杂活动规则拆分为奖励、参与步骤、时间和产品信息等核心模块。通过醒目的数字层级、日文排版和场景化产品展示，降低用户理解成本，并在不同活动物料中保持品牌视觉的一致性。\n\n产品对比型社媒物料强调清晰的信息层级，通过数据可视化、重点标记和色彩区分提升阅读效率。",
+    campaignShowcase: {
+      title: "海外社媒海报设计",
+      theme: "light",
+      copy: [
+        ["针对日本社媒平台完成活动海报设计：", "将复杂的活动规则拆分为奖励、参与步骤、时间和产品信息等核心模块。通过醒目的数字层级、日文排版和场景化产品展示，降低用户理解成本，并在不同活动物料中保持品牌视觉的一致性。"],
+        ["产品对比型社媒物料的视觉设计：", "将多维参数重新梳理为清晰的信息层级，并通过数据可视化、重点标记和色彩区分提升阅读效率。在保证专业可信度的同时，使技术信息更适合社交媒体场景下的快速浏览。"]
+      ]
+    },
+    lineMenu: {
+      title: "日区 LINE 菜单设计",
+      copy: "针对日区 LINE 社交软件中菜单的优化设计：\n第一层 A 区：主推产品。\n第二层分别为 BCD 区：极米 Logo、场景和多个产品，这一层的视觉风格需要统一。\nCD 区的场景图通过 AI 完成：寻找场景素材并推导提示词，结合配色与场景参考生成画面，再将产品白底图融入场景，最后在 Photoshop 中统一调色与修图。",
+      previews: [
+        "/images/projects/xgimi-visual-marketing/posters/menu-design-01.png",
+        "/images/projects/xgimi-visual-marketing/posters/menu-design-02.png"
+      ],
+      application: "/images/projects/xgimi-visual-marketing/posters/menu-design-03.jpg"
+    },
     remaining: [
       "/images/projects/xgimi-visual-marketing/amazon-detail-pages/hero-image-04.png",
       "/images/projects/xgimi-visual-marketing/amazon-detail-pages/hero-image-05.png",
@@ -165,9 +187,20 @@ window.PORTFOLIO_PROJECTS = [
       "/images/projects/xgimi-visual-marketing/amazon-detail-pages/pc-a-plus-12.jpg",
       "/images/projects/xgimi-visual-marketing/amazon-detail-pages/pc-a-plus-13.jpg",
       "/images/projects/xgimi-visual-marketing/amazon-detail-pages/pc-a-plus-14.jpg",
-      "/images/projects/xgimi-visual-marketing/amazon-detail-pages/pc-a-plus-15.jpg"
+      "/images/projects/xgimi-visual-marketing/amazon-detail-pages/pc-a-plus-15.jpg",
+      "/images/projects/xgimi-visual-marketing/amazon-detail-pages/pc-a-plus-16.jpg",
+      "/images/projects/xgimi-visual-marketing/amazon-detail-pages/pc-a-plus-17.jpg",
+      "/images/projects/xgimi-visual-marketing/amazon-detail-pages/pc-a-plus-18.jpg",
+      "/images/projects/xgimi-visual-marketing/amazon-detail-pages/pc-a-plus-19.jpg",
+      "/images/projects/xgimi-visual-marketing/amazon-detail-pages/pc-a-plus-20.jpg",
+      "/images/projects/xgimi-visual-marketing/amazon-detail-pages/pc-a-plus-21.jpg",
+      "/images/projects/xgimi-visual-marketing/amazon-detail-pages/pc-a-plus-22.jpg",
+      "/images/projects/xgimi-visual-marketing/amazon-detail-pages/pc-a-plus-23.jpg",
+      "/images/projects/xgimi-visual-marketing/amazon-detail-pages/pc-a-plus-24.jpg",
+      "/images/projects/xgimi-visual-marketing/amazon-detail-pages/pc-a-plus-25.jpg",
+      "/images/projects/xgimi-visual-marketing/amazon-detail-pages/pc-a-plus-26.jpg"
     ],
-    remainingTitle: "亚马逊产品详情页",
+    remainingTitle: "亚马逊平台 A+ 详情页",
     details: [
       ["GLOBAL VISUAL", "Premium product focus\nEditorial scale\nConsistent global voice"],
       ["LOCALIZATION", "Flexible copy zones\nRegional crops\nMarketplace modules"],

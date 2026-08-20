@@ -7,7 +7,7 @@
   const infoCard = ([title, body]) => `<article class="info-card"><h3>${title}</h3><p>${body.replace(/\n/g, "<br>")}</p></article>`;
   const posterStack = (assets, label = "POSTER", className = "") => `
     <div class="poster-stack artwork-stack ${className}" tabindex="0" role="button" aria-label="点击切换下一张海报">
-      ${assets.slice(0, 3).map((src, index) => `<figure class="poster-card" data-order="${index}"><img src="${src}" alt="${label} ${String(index + 1).padStart(2, "0")}" draggable="false"></figure>`).join("")}
+      ${(className.includes("all-posters") ? assets : assets.slice(0, 3)).map((src, index) => `<figure class="poster-card" data-order="${index}"><img src="${src}" alt="${label} ${String(index + 1).padStart(2, "0")}" draggable="false"></figure>`).join("")}
       ${className.includes("single-poster") ? "" : `<span class="poster-tap-hint">点击海报查看下一张</span>`}
     </div>`;
 
@@ -156,7 +156,7 @@
   function remainingDesigns(project) {
     if (!project.remaining?.length) return "";
     const title = project.remainingTitle || "REMAINING DESIGNS";
-    return `<section class="remaining-section remaining-${project.number} ${project.number === "02" ? "section-light" : "section-lavender"}"><h2 class="detail-heading reveal">${title}</h2><div class="remaining-grid">${project.remaining.map((src, index) => `<img src="${src}" alt="${project.title} remaining design ${index + 1}">`).join("")}</div></section>`;
+    return `<section id="remaining-${project.number}" class="remaining-section remaining-${project.number} ${project.number === "02" ? "section-light" : "section-lavender"}"><h2 class="detail-heading reveal">${title}</h2><div class="remaining-grid">${project.remaining.map((src, index) => `<img src="${src}" alt="${project.title} remaining design ${index + 1}">`).join("")}</div></section>`;
   }
 
   function screensSections(project) {
@@ -170,6 +170,28 @@
         <div class="phone-track drag-scroll">${screenPhones}</div>
       </section>`;
     }).join("");
+  }
+
+  function campaignShowcase(project) {
+    const showcase = project.campaignShowcase;
+    if (!showcase) return "";
+    const copy = showcase.copy.map(([title, body]) => `<article><h3>${title}</h3><p>${body}</p></article>`).join("");
+    return `<section id="campaign-${project.number}" class="campaign-showcase campaign-${project.id} ${showcase.theme === "light" ? "section-light" : "section-lavender"}">
+      <div class="campaign-showcase-copy"><h2 class="detail-heading reveal">${showcase.title}</h2><div class="campaign-copy-body">${copy}</div></div>
+      ${posterStack(project.posters, showcase.title, `campaign-stack all-posters campaign-stack-${project.number}`)}
+    </section>`;
+  }
+
+  function lineMenuSection(project) {
+    if (!project.lineMenu) return "";
+    const menu = project.lineMenu;
+    return `<section id="line-menu" class="line-menu-section section-dark">
+      <div class="line-menu-copy"><h2 class="detail-heading reveal">${menu.title}</h2><p>${menu.copy.replace(/\n/g, "<br>")}</p></div>
+      <div class="line-menu-preview">
+        <div class="line-menu-panels">${menu.previews.map((src, index) => `<img src="${src}" alt="${menu.title} 菜单方案 ${index + 1}">`).join("")}</div>
+        <figure class="line-menu-application"><img src="${menu.application}" alt="${menu.title} 实际应用效果"><figcaption>实际应用效果展示</figcaption></figure>
+      </div>
+    </section>`;
   }
 
   function nextProject(project) {
@@ -205,10 +227,11 @@
         <div class="tool-row">${project.tools.map(tag).join("")}</div>
       </section>
       ${screensSections(project)}
-      <section class="stack-section ${project.stackTheme === "light" ? "section-light" : "section-lavender"}">
+      ${project.campaignShowcase ? campaignShowcase(project) : `<section class="stack-section ${project.stackTheme === "light" ? "section-light" : "section-lavender"}">
         <div class="stack-copy"><h2 class="detail-heading reveal">POSTER STACK</h2><p>${(project.stackDescription || "点击最上层海报循环浏览。每张卡片保留独立旋转、缩放和层级，过渡时长 420ms。").replace(/\n/g, "<br>")}</p><small>${project.stackNote || "ARRAY ORDER · Z-INDEX · TRANSFORM · TRANSITION 350MS"}</small></div>
         ${posterStack(project.posters, "POSTER", project.stackVariant || "")}
-      </section>
+      </section>`}
+      ${lineMenuSection(project)}
       ${remainingDesigns(project)}
       <section class="next-section section-dark">${nextProject(project)}</section>`;
   }
@@ -515,6 +538,7 @@
     $$(".poster-stack").forEach((stack) => {
       $$(".poster-card", stack).forEach((card) => {
         const image = $("img", card);
+        if (stack.classList.contains("campaign-stack")) return;
         const preserveRatio = () => {
           if (!image?.naturalWidth || !image?.naturalHeight) return;
           const ratio = image.naturalWidth / image.naturalHeight;
